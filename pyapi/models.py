@@ -11,13 +11,12 @@ from django.db import models
 
 
 class Airplane(models.Model):
-    airplane_id = models.IntegerField(blank=True, null=True)
-    manufacturer = models.TextField()
-    max_seats = models.IntegerField()
-    type = models.TextField()
+    airplane_id = models.IntegerField(blank=True, null=True, default=0)
+    manufacturer = models.TextField(default='')
+    max_seats = models.IntegerField(default=0)
+    type = models.TextField(default='')
 
     class Meta:
-        managed = False
         db_table = 'Airplane'
 
 
@@ -28,7 +27,6 @@ class AirplaneAirport(models.Model):
     airport = models.ForeignKey('Airport', models.DO_NOTHING)
 
     class Meta:
-        managed = False
         db_table = 'Airplane_Airport'
 
 
@@ -37,7 +35,6 @@ class AirplaneCustomer(models.Model):
     cust = models.ForeignKey('Customer', models.DO_NOTHING)
 
     class Meta:
-        managed = False
         db_table = 'Airplane_Customer'
 
 
@@ -48,7 +45,6 @@ class Airport(models.Model):
     state = models.TextField()
 
     class Meta:
-        managed = False
         db_table = 'Airport'
 
 
@@ -63,7 +59,6 @@ class Customer(models.Model):
     phone = models.IntegerField()
 
     class Meta:
-        managed = False
         db_table = 'Customer'
 
 
@@ -72,7 +67,6 @@ class CustomerSeat(models.Model):
     seat_number = models.ForeignKey('Seat', models.DO_NOTHING, db_column='seat_number')
 
     class Meta:
-        managed = False
         db_table = 'Customer_Seat'
 
 
@@ -81,5 +75,4 @@ class Seat(models.Model):
     airplane = models.ForeignKey(Airplane, models.DO_NOTHING)
 
     class Meta:
-        managed = False
         db_table = 'Seat'
