@@ -14,7 +14,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def airplane_list(request):
-    # list all the airplane, or create a new airplane_id
+    # list all the airplane, or create a new airplane
     if request.method == 'GET':
         airplanes = Airplane.objects.all()
         serializer = AirplaneSerializer(airplanes, many=True)
@@ -50,4 +50,44 @@ def airplane_detail(request, pk):
 
     elif request.method == 'DELETE':
         airplane.delete()
+        return HttpResponse(status=status.HTTP_204_NO_CONTENT)
+
+@csrf_exempt
+def airport_list(request):
+    # List all the airport, or create a new airport
+        if request.method == 'GET':
+            airports = Airport.objects.all()
+            serializer = AirportSerializer(airports, many=True)
+            return JsonResponse(serializer.data, safe=False)
+
+        elif request.method == 'POST':
+            data = JSONParser().parse(request)
+            serializer = AirportSerializer(data=data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data, status=status.HTTP_200_OK)
+            return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@csrf_exempt
+def airport_detail(request, pk):
+    # Operate on one specific airport by its id
+    try:
+        airport = Airport.objects.get(pk=pk)
+    except Airport.DoesNotExist:
+        return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = AirportSerializer(airport)
+        return JsonResponse(serializer.data)
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = AirportSerializer(airport, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=status.HTTP_200_OK)
+        return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        airport.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)

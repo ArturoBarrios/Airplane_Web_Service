@@ -39,10 +39,10 @@ class AirplaneCustomer(models.Model):
 
 
 class Airport(models.Model):
-    airport_id = models.IntegerField(blank=True, null=True)
-    airport_name = models.TextField()
-    city = models.TextField()
-    state = models.TextField()
+    airport_id = models.IntegerField(blank=True, primary_key=True, default='0')
+    airport_name = models.TextField(default='')
+    city = models.TextField(default='')
+    state = models.TextField(default='')
 
     class Meta:
         db_table = 'Airport'
