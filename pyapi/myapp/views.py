@@ -9,8 +9,10 @@ from django.views import View
 from . import models
 from .serializers import *
 from rest_framework.views import APIView
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
+@csrf_exempt
 def airplane_list(request):
     # list all the airplane, or create a new airplane_id
     if request.method == 'GET':
@@ -25,3 +27,26 @@ def airplane_list(request):
             serializer.save()
             return JsonResponse(serializer.data, status=201)
         return JsonResponse(serializer.errors, status=400)
+
+@csrf_exempt
+def airplane_detail(request, pk):
+    try:
+        airplane = Airplane.objects.get(pk=pk)
+    except Airplane.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = AirplaneSerializer(airplane)
+        return JsonResponse(serializer.data)
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = AirplaneSerializer(airplane, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data)
+        return JsonResponse(serializer.errors, status=400)
+
+    elif request.method == 'DELETE':
+        airplane.delete()
+        return HttpResponse(status=204)
