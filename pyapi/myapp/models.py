@@ -5,74 +5,84 @@
 #   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
-from __future__ import unicode_literals
-
 from django.db import models
 
 
 class Airplane(models.Model):
-    airplane_id = models.IntegerField(blank=True, primary_key=True, default=0)
-    manufacturer = models.TextField(default='')
+    airplane_id = models.IntegerField(primary_key=True, default=0)
+    manufacturer = models.TextField(default="")
     max_seats = models.IntegerField(default=0)
-    type = models.TextField(default='')
+    type = models.TextField(default="")
 
     class Meta:
         db_table = 'Airplane'
-
-
-class AirplaneAirport(models.Model):
-    scheduled_dep_time = models.DateTimeField(blank=True, null=True)
-    scheduled_arr_time = models.DateTimeField(blank=True, null=True)
-    airplane = models.ForeignKey(Airplane, models.DO_NOTHING)
-    airport = models.ForeignKey('Airport', models.DO_NOTHING)
-
-    class Meta:
-        db_table = 'Airplane_Airport'
-
-
-class AirplaneCustomer(models.Model):
-    airplane = models.ForeignKey(Airplane, models.DO_NOTHING)
-    cust = models.ForeignKey('Customer', models.DO_NOTHING)
+# Unable to inspect table 'Airplane_Customer'
+# The error was: list index out of range
+class Airplane_Customer(models.Model):
+    id = models.IntegerField(primary_key=True)
+    airplane_id = models.ForeignKey('Airplane', on_delete=models.CASCADE)
+    customer_id = models.ForeignKey('Customer', on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'Airplane_Customer'
 
-
 class Airport(models.Model):
-    airport_id = models.IntegerField(blank=True, primary_key=True, default='0')
-    airport_name = models.TextField(default='')
-    city = models.TextField(default='')
-    state = models.TextField(default='')
+    airport_id = models.IntegerField(primary_key=True, default=0)
+    airport_name = models.TextField(default="")
+    city = models.TextField(default="")
+    state = models.TextField(default="")
 
     class Meta:
         db_table = 'Airport'
 
 
 class Customer(models.Model):
-    cust_id = models.IntegerField(blank=True, null=True)
-    c_first_name = models.TextField()
-    c_last_name = models.TextField()
-    address = models.TextField()
-    city = models.TextField()
+    cust_id = models.IntegerField(primary_key=True, default=0)
+    c_first_name = models.TextField(default="")
+    c_last_name = models.TextField(default="")
+    address = models.TextField(default="")
+    city = models.TextField(default="")
     postal_code = models.IntegerField(blank=True, null=True)
-    email = models.TextField()
-    phone = models.IntegerField()
+    email = models.TextField(default="")
+    phone = models.IntegerField(default=0)
 
     class Meta:
         db_table = 'Customer'
 
 
-class CustomerSeat(models.Model):
-    cust = models.ForeignKey(Customer, models.DO_NOTHING)
-    seat_number = models.ForeignKey('Seat', models.DO_NOTHING, db_column='seat_number')
+class Flight(models.Model):
+    flight_id = models.IntegerField(primary_key=True, default=0)
+    scheduled_dep_time = models.TextField(blank=True, null=True)
+    scheduled_arriv_time = models.TextField(blank=True, null=True)
+    departure_airportid = models.IntegerField(db_column='departure_airportID', blank=True, null=True)  # Field name made lowercase.
+    arrival_airportid = models.IntegerField(db_column='arrival_airportID', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        db_table = 'Customer_Seat'
+        db_table = 'Flight'
+# Unable to inspect table 'Flight_Airplane'
+# The error was: list index out of range
+# Unable to inspect table 'Flight_Airport'
+# The error was: list index out of range
+# Unable to inspect table 'Flight_Customer'
+# The error was: list index out of range
 
-
-class Seat(models.Model):
-    seat_number = models.TextField(unique=True, blank=True, null=True)
-    airplane = models.ForeignKey(Airplane, models.DO_NOTHING)
+class Flight_Airplane(models.Model):
+    id = models.IntegerField(primary_key=True)
+    flight_id=models.ForeignKey('Flight', on_delete=models.CASCADE)
+    airplane_id = models.ForeignKey('Airplane', on_delete=models.CASCADE)
 
     class Meta:
-        db_table = 'Seat'
+        db_table = 'Flight_Airplane'
+
+class Flight_Airport(models.Model):
+    id = models.IntegerField(primary_key=True)
+    flight_id = models.ForeignKey('Flight', on_delete=models.CASCADE)
+    Airport_id = models.ForeignKey('Airport', on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'Flight_Airport'
+
+class Flight_Customer(models.Model):
+    id = models.IntegerField(primary_key=True)
+    flight_id = models.ForeignKey('Flight', on_delete=models.CASCADE)
+    customer_id = models.ForeignKey('Customer', on_delete=models.CASCADE)
