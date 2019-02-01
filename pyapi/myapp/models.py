@@ -16,8 +16,7 @@ class Airplane(models.Model):
 
     class Meta:
         db_table = 'Airplane'
-# Unable to inspect table 'Airplane_Customer'
-# The error was: list index out of range
+
 class Airplane_Customer(models.Model):
     id = models.IntegerField(primary_key=True)
     airplane_id = models.ForeignKey('Airplane', on_delete=models.CASCADE)
@@ -59,12 +58,6 @@ class Flight(models.Model):
 
     class Meta:
         db_table = 'Flight'
-# Unable to inspect table 'Flight_Airplane'
-# The error was: list index out of range
-# Unable to inspect table 'Flight_Airport'
-# The error was: list index out of range
-# Unable to inspect table 'Flight_Customer'
-# The error was: list index out of range
 
 class Flight_Airplane(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -86,3 +79,6 @@ class Flight_Customer(models.Model):
     id = models.IntegerField(primary_key=True)
     flight_id = models.ForeignKey('Flight', on_delete=models.CASCADE)
     customer_id = models.ForeignKey('Customer', on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'Flight_Customer'
