@@ -52,8 +52,8 @@ class Customer(models.Model):
 
 class Flight(models.Model):
     flight_id = models.IntegerField(primary_key=True, default=0)
-    scheduled_dep_time = models.TimeField(blank=True, null=True)
-    scheduled_arriv_time = models.TimeField(blank=True, null=True)
+    scheduled_dep_time = models.TextField(blank=True, null=True)
+    scheduled_arriv_time = models.TextField(blank=True, null=True)
     departure_airportid = models.IntegerField(db_column='departure_airportID', blank=True, null=True)  # Field name made lowercase.
     arrival_airportid = models.IntegerField(db_column='arrival_airportID', blank=True, null=True)  # Field name made lowercase.
 
