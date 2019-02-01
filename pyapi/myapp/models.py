@@ -17,13 +17,13 @@ class Airplane(models.Model):
     class Meta:
         db_table = 'Airplane'
 
-class Airplane_Customer(models.Model):
+class Customer_Airplane(models.Model):
     id = models.IntegerField(primary_key=True)
     airplane_id = models.ForeignKey('Airplane', on_delete=models.CASCADE)
     customer_id = models.ForeignKey('Customer', on_delete=models.CASCADE)
 
     class Meta:
-        db_table = 'Airplane_Customer'
+        db_table = 'Customer_Airplane'
 
 class Airport(models.Model):
     airport_id = models.IntegerField(primary_key=True, default=0)
@@ -45,13 +45,13 @@ class Customer(models.Model):
     email = models.TextField(default="")
     phone = models.IntegerField(default=0)
 
+
     class Meta:
         db_table = 'Customer'
 
 
 class Flight(models.Model):
     flight_id = models.IntegerField(primary_key=True, default=0)
-    customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
     scheduled_dep_time = models.TextField(blank=True, null=True)
     scheduled_arriv_time = models.TextField(blank=True, null=True)
     departure_airportid = models.IntegerField(db_column='departure_airportID', blank=True, null=True)  # Field name made lowercase.

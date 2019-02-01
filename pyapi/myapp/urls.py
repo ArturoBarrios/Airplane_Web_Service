@@ -10,5 +10,4 @@ urlpatterns = [
     path('customers/<int:pk>', views.customer_detail),
     path('flights/', views.flight_list),
     path('flights/<int:pk>', views.flight_detail),
-    path('airplanecustomers/', views.AirplaneCustomer_list),
 ]

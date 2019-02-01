@@ -100,7 +100,7 @@ def customer_list(request):
         serializer = CustomerSerializer(customers, many=True)
         return JsonResponse(serializer.data, safe=False)
 
-    elif request == 'POST':
+    elif request.method == 'POST':
         data = JSONParser().parse(request)
         serializer = CustomerSerializer(data=data)
         if serializer.is_valid():
@@ -140,7 +140,7 @@ def flight_list(request):
         serializer = FlightSerializer(flights, many=True)
         return JsonResponse(serializer.data, safe=False)
 
-    elif request == 'POST':
+    elif request.method == 'POST':
         data = JSONParser().parse(request)
         serializer = FlightSerializer(data=data)
         if serializer.is_valid():
@@ -171,18 +171,3 @@ def flight_detail(request, pk):
     elif request.method == 'DELETE':
         flight.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
-
-@csrf_exempt
-def AirplaneCustomer_list(request):
-    if request.method == 'GET':
-        relations = Airplane_Customer.objects.all()
-        serializer = AirplaneCustomerSerializer(relations, many=True)
-        return JsonResponse(serializer.data, safe=False)
-
-    elif request.method == 'POST':
-        data = JSONParser().parse(request)
-        serializer = AirplaneCustomerSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=status.HTTP_200_OK)
-        return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
