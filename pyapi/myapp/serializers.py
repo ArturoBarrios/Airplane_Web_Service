@@ -35,3 +35,8 @@ class FlightAirportSerializer(serializers.ModelSerializer):
     class Meta:
         model = Flight_Airport
         fields = ('id', 'flight_id', 'airport_id')
+
+class FlightCustomerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Flight_Customer
+        fields = ('id', 'flight_id', 'customer_id')
