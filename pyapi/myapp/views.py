@@ -186,3 +186,27 @@ def customerairplane_list(request):
             serializer.save()
             return JsonResponse(serializer.data, status=status.HTTP_200_OK)
         return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@csrf_exempt
+def customerairplane_detail(request, pk):
+    # OPerate on one specific customer_airplane relation by its id
+    try:
+        relation = Customer_Airplane.objects.get(pk=pk)
+    except Customer_Airplane.DoesNotExist:
+        return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = CustomerAirplaneSerializer(relation)
+        return JsonResponse(serializer.data)
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = CustomerAirplaneSerializer(relation, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=status.HTTP_200_OK)
+        return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        relation.delete()
+        return HttpResponse(status=status.HTTP_204_NO_CONTENT)

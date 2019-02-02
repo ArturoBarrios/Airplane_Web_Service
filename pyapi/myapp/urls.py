@@ -11,4 +11,5 @@ urlpatterns = [
     path('flights/', views.flight_list),
     path('flights/<int:pk>', views.flight_detail),
     path('customerairplane/', views.customerairplane_list),
+    path('customerairplane/<int:pk>', views.customerairplane_detail),
 ]
