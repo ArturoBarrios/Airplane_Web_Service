@@ -71,7 +71,7 @@ class Flight_Airplane(models.Model):
 class Flight_Airport(models.Model):
     id = models.IntegerField(primary_key=True)
     flight_id = models.ForeignKey('Flight', on_delete=models.CASCADE)
-    Airport_id = models.ForeignKey('Airport', on_delete=models.CASCADE)
+    airport_id = models.ForeignKey('Airport', on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'Flight_Airport'

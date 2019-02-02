@@ -25,3 +25,13 @@ class CustomerAirplaneSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer_Airplane
         fields = ('id', 'airplane_id', 'customer_id')
+
+class FlightAirplaneSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Flight_Airplane
+        fields = ('id', 'flight_id', 'airplane_id')
+
+class FlightAirportSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Flight_Airport
+        fields = ('id', 'flight_id', 'airport_id')

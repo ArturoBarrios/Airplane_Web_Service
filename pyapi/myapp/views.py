@@ -210,3 +210,83 @@ def customerairplane_detail(request, pk):
     elif request.method == 'DELETE':
         relation.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
+
+@csrf_exempt
+def flightairplane_list(request):
+    # list all flightairplane relationship, or create a new one
+    if request.method == 'GET':
+        relations = Flight_Airplane.objects.all()
+        serializer = FlightAirplaneSerializer(relations, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = FlightAirplaneSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=status.HTTP_200_OK)
+        return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@csrf_exempt
+def flightairplane_detail(request, pk):
+    # OPerate on one specific flight_airplane relationship by its id
+    try:
+        relation = Flight_Airplane.objects.get(pk=pk)
+    except Flight_Airplane.DoesNotExist:
+        return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = FlightAirplaneSerializer(relation)
+        return JsonResponse(serializer.data)
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = FlightAirplaneSerializer(relation, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=status.HTTP_200_OK)
+        return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        relation.delete()
+        return HttpResponse(status=status.HTTP_204_NO_CONTENT)
+
+@csrf_exempt
+def flightairport_list(request):
+    # list all flightairport relationship, or create a new one
+    if request.method == 'GET':
+        relations = Flight_Airport.objects.all()
+        serializer = FlightAirportSerializer(relations, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = FlightAirportSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=status.HTTP_200_OK)
+        return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@csrf_exempt
+def flightairport_detail(request, pk):
+    # OPerate on one specific flight_airplort relationship by its id
+    try:
+        relation = Flight_Airport.objects.get(pk=pk)
+    except Flight_Airport.DoesNotExist:
+        return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = FlightAirportSerializer(relation)
+        return JsonResponse(serializer.data)
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = FlightAirportSerializer(relation, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=status.HTTP_200_OK)
+        return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        relation.delete()
+        return HttpResponse(status=status.HTTP_204_NO_CONTENT)
