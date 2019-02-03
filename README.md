@@ -12,4 +12,4 @@
 ### ./myapp/flights
 ### ./myapp/flights/<int=pk>
 
-### collection link: https://app.getpostman.com/join-team?invite_code=dcee962bf1fae1d6d75b753055e04e9d
+### collection link:https://www.getpostman.com/collections/58f8c9fc246c24d924b2
