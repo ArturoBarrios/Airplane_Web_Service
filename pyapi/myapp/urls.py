@@ -3,7 +3,7 @@ from myapp import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('airplane/', views.airplane_list_new.as_view(), name='Airplane'),
+    path('airplane/', views.airplane_list_new.as_view(), name='airplane'),
     path('airplanes/', views.airplane_list),
     path('airplanes/<int:pk>', views.airplane_detail),
     path('airports/', views.airport_list),
