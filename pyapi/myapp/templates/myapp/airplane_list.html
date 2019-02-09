@@ -6,7 +6,10 @@
   <ul>
     {% for airplane in airplane_list %}
       <li>
-        <a href="{{ airplane.get_absolute_url }}">{{ airplane.airplane_id }}</a> ({{airplane.manufacturer}})({{airplane.max_seats}})({{airplane.type}})
+        <a href="{{ airplane.get_absolute_url }}">{{ airplane.airplane_id }}</a><br/> 
+        ({{airplane.manufacturer}})<br/>
+        ({{airplane.max_seats}})<br/>
+        ({{airplane.type}})
       </li>
     {% endfor %}
   </ul>
