@@ -17,6 +17,8 @@ from django.views import generic
 
 class airplane_list_new(generic.ListView):
     model = Airplane
+class customer_list_new(generic.ListView):
+    model = Customer
 def index(request):
     """View function for home page of site."""
 
