@@ -19,6 +19,8 @@ class airplane_list_new(generic.ListView):
     model = Airplane
 class customer_list_new(generic.ListView):
     model = Customer
+class flight_list_new(generic.ListView):
+    model = Flight
 def index(request):
     """View function for home page of site."""
 
