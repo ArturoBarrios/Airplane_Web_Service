@@ -20,7 +20,7 @@ class Airplane(models.Model):
 class Customer_Airplane(models.Model):
     id = models.IntegerField(primary_key=True)
     airplane_id = models.ForeignKey('Airplane', on_delete=models.CASCADE)
-    customer_id = models.ForeignKey('Customer', on_delete=models.CASCADE)
+    cust_id = models.ForeignKey('Customer', on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'Customer_Airplane'
@@ -52,15 +52,17 @@ class Customer(models.Model):
 
 class Flight(models.Model):
     flight_id = models.IntegerField(primary_key=True, default=0)
+    cust_id = models.ForeignKey('Airplane', on_delete=models.CASCADE, default=0)
     cust_id = models.ForeignKey('Customer', on_delete=models.CASCADE, default=0)
-    scheduled_dep_time = models.TextField(blank=True, null=True)
-    scheduled_arriv_time = models.TextField(blank=True, null=True)
-    departure_airportid = models.IntegerField(db_column='departure_airportID', blank=True, null=True)  # Field name made lowercase.
-    arrival_airportid = models.IntegerField(db_column='arrival_airportID', blank=True, null=True)  # Field name made lowercase.
+    scheduled_dep_time = models.DateTimeField(null=True, blank=True)
+    scheduled_arriv_time = models.DateTimeField(null=True, blank=True)
+    departure_airport = models.TextField(blank=True,null=True)  # Field name made lowercase.
+    arrival_airport = models.TextField(blank=True,null=True)  # Field name made lowercase.
 
     class Meta:
         db_table = 'Flight'
 
+#not used
 class Flight_Airplane(models.Model):
     id = models.IntegerField(primary_key=True)
     flight_id=models.ForeignKey('Flight', on_delete=models.CASCADE)
@@ -77,10 +79,11 @@ class Flight_Airport(models.Model):
     class Meta:
         db_table = 'Flight_Airport'
 
+#not used
 class Flight_Customer(models.Model):
     id = models.IntegerField(primary_key=True)
     flight_id = models.ForeignKey('Flight', on_delete=models.CASCADE)
-    customer_id = models.ForeignKey('Customer', on_delete=models.CASCADE)
+    cust_id = models.ForeignKey('Customer', on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'Flight_Customer'

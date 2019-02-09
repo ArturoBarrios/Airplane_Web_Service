@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>NetJets Homepage</h1>
+  <p>Welcome to NetJets, a website developed by <em>OSU</em>!</p>
+  <h2>Summary of assets</h2>
+  <p>The company has the following record counts:</p>
+  <ul>
+    <li><strong>Customers:</strong> {{ num_customers}}</li>
+    <li><strong>Airplanes:</strong> {{ num_airplanes}}</li>
+    <li><strong>Airports:</strong> {{ num_airports}}</li>
+    <li><strong>Flights:</strong> {{ num_flights}}</li>
+  </ul>
+{% endblock %}
