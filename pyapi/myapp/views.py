@@ -19,17 +19,15 @@ class airplane_list_new(generic.ListView):
     model = Airplane
 class customer_list_new(generic.ListView):
     model = Customer
-<<<<<<< HEAD
+class flight_list_new(generic.ListView):
+    model = Flight
 class customer_detail_new(generic.DetailView):
     model = Customer
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-=======
-class flight_list_new(generic.ListView):
-    model = Flight
->>>>>>> 509607c0b9c9f62bd3660684d79510b2f794d5f5
+
 def index(request):
     """View function for home page of site."""
 
