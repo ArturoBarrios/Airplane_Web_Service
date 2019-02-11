@@ -1,6 +1,7 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+<<<<<<< HEAD
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="https://www.netjets.com/">NetJets</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,4 +68,41 @@
 {% else %}
 <p>There are no customers in the category.</p>
 {% endif %}
+=======
+  <h1>Customer List</h1>
+  {% if customer_list %}
+  <ul>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Customer Id</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">City</th>
+          <th scope="col">Zipcode</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone Number</th>
+        </tr>
+      </thead>
+      {% for customer in customer_list %}
+        <tbody>
+          <tr>
+            <th scope="row">{{customer.cust_id}}</th>
+            <td>{{customer.c_first_name}}</td>
+            <td>{{customer.c_last_name}}</td>
+            <td>{{customer.address}}</td>
+            <td>{{customer.city}}</td>
+            <td>{{customer.postal_code}}</td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.phone}}</td>
+          </tr>
+        </tbody>
+      {% endfor %}
+    </table>
+  </ul>
+  {% else %}
+    <p>There are no customers in the category.</p>
+  {% endif %}
+>>>>>>> 509607c0b9c9f62bd3660684d79510b2f794d5f5
 {% endblock %}
