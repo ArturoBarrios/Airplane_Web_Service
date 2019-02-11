@@ -1,0 +1,54 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<form method="post">{% csrf_token %}
+
+  <!-- <input size="16" type="text" value="2012-06-15 14:45" readonly class="form_datetime">
+
+  <script type="text/javascript">
+      $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+  </script> -->
+
+  <!-- <div class="row">
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker12').datetimepicker({
+            inline: true,
+            sideBySide: true,
+            format: 'DD.MM.YYYY' /*remove this line if you want to use time as well */
+        });
+    });
+</script>-->
+
+
+  <div class="form-group">
+    <label for="cust_id">Your Name</label>
+    <select id="cust_id" class="form-control">
+      <option selected>Choose...</option>
+      <option>...</option>
+    </select>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="scheduled_dep_time">Departure Time</label>
+      <input type="text" class="form-control" id="scheduled_dep_time">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="scheduled_arriv_time">Arrival Time</label>
+      <input type="text" class="form-control" id="scheduled_arriv_time">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="departure_airport">Departure Airport</label>
+    <input type="text" class="form-control" id="departure_airport" placeholder="DTW">
+  </div>
+  <div class="form-group">
+    <label for="arrival_airport">Arrival Airport</label>
+    <input type="text" class="form-control" id="arrival_airport" placeholder="ICN">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
