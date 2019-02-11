@@ -1,22 +1,70 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Customer List</h1>
-  {% if customer_list %}
-  <ul>
-    {% for customer in customer_list %}
-      <li>
-        <a href="{{ customer.get_absolute_url }}">{{ customer.c_first_name}} {{customer.c_last_name}}</a><br/>
-        {{customer.cust_id}}<br/>
-        {{customer.address}}:<br/>
-        {{customer.city}}:<br/>
-        {{customer.postal_code}}:<br/>
-        {{customer.email}}:<br/>
-        {{customer.phone}}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="https://www.netjets.com/">NetJets</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<h1>Customer List</h1>
+{% if customer_list %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Customer_id</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Zip Code</th>
+      <th>Email</th>
+      <th>Phone#</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for customer in customer_list %}
+    <tr>
+      <td><a href="{{ customer.get_absolute_url }}">{{ customer.c_first_name}} {{customer.c_last_name}}</a>
+      <th/ <td>{{customer.cust_id}}</td>
+      <td>{{customer.address}}</td>
+      <td>{{customer.city}}</td>
+      <td>{{customer.postal_code}}</td>
+      <td>{{customer.email}}</td>
+      <td>{{customer.phone}}</td>
+    </tr>
     {% endfor %}
-  </ul>
-  {% else %}
-    <p>There are no customers in the category.</p>
-  {% endif %}
+  </tbody>
+</table>
+{% else %}
+<p>There are no customers in the category.</p>
+{% endif %}
 {% endblock %}

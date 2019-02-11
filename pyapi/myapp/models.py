@@ -50,6 +50,7 @@ class Customer(models.Model):
         db_table = 'Customer'
 
 
+
 class Flight(models.Model):
     flight_id = models.IntegerField(primary_key=True, default=0)
     cust_id = models.ForeignKey('Airplane', on_delete=models.CASCADE, default=0)
