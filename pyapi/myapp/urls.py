@@ -21,4 +21,5 @@ urlpatterns = [
     path('flightairport/<int:pk>', views.flightairport_detail),
     path('flightcustomer/', views.flightcustomer_list),
     path('flightcustomer/<int:pk>', views.flightcustomer_detail),
+    path('customer/<int:pk>', views.customer_detail_new.as_view(), name='customer_detail'),
 ]

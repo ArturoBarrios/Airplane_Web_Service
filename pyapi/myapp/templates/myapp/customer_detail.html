@@ -1,6 +1,6 @@
 {% extends "base_generic.html" %}
-
 {% block content %}
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="https://www.netjets.com/">NetJets</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,35 +36,26 @@
     </form>
   </div>
 </nav>
-<h1>Customer List</h1>
-{% if customer_list %}
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Customer_id</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>Zip Code</th>
-      <th>Email</th>
-      <th>Phone#</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for customer in customer_list %}
-    <tr>
-      <td><a href="{{ customer.cust_id }}">{{ customer.c_first_name}} {{customer.c_last_name}}</a>
-      <th/ <td>{{customer.cust_id}}</td>
-      <td>{{customer.address}}</td>
-      <td>{{customer.city}}</td>
-      <td>{{customer.postal_code}}</td>
-      <td>{{customer.email}}</td>
-      <td>{{customer.phone}}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-{% else %}
-<p>There are no customers in the category.</p>
-{% endif %}
+<div class="container target">
+  <div class="row">
+    <h1>{{ object.c_first_name}} {{ object.c_last_name }}</h1>
+  </div>
+  <div class="row">
+    <img align="left" class="fb-image-profile thumbnail" src="http://lorempixel.com/180/180/people/9/" alt="Profile image example" />
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="list-group">
+        <ul class="list-group">
+          <li class="list-group-item text-muted" contenteditable="false">Profile</li>
+          <li class="list-group-item text-left"><span class="pull-left"><strong class="">Name: </strong></span> {{ object.c_first_name }} {{ object.c_last_name }}</li>
+          <li class="list-group-item text-left"><span class="pull-left"><strong class="">Customer id: </strong></span> {{ object.cust_id }}</li>
+          <li class="list-group-item text-left"><span class="pull-left"><strong class="">Address: </strong></span> {{ object.address }}, {{ object.city }}, {{ object.postal_code }}</li>
+          <li class="list-group-item text-muted" contenteditable="false">Contact Details</li>
+          <li class="list-group-item text-left"><span class="pull-left"><strong class="">Phone Number: </strong></span> {{ object.phone }}</li>
+          <li class="list-group-item text-left"><span class="pull-left"><strong class="">Email: </strong></span> {{ object.email }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 {% endblock %}
