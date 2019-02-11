@@ -1,7 +1,12 @@
 {% extends "base_generic.html" %}
 
+{% load crispy_forms_tags %}
+{% crispy FlightCreateView FlightCreateView.helper %}
+
+**myapp/flight_form.html**
+
 {% block content %}
-<form method="post">{% csrf_token %}
+<form method="post" novalidate>{% csrf_token %}
 
   <!-- <input size="16" type="text" value="2012-06-15 14:45" readonly class="form_datetime">
 
@@ -23,32 +28,38 @@
 
 
   <div class="form-group">
-    <label for="cust_id">Your Name</label>
-    <select id="cust_id" class="form-control">
-      <option selected>Choose...</option>
-      <option>...</option>
-    </select>
+    <!-- <label for="cust_id">Your Name</label> -->
+    <!-- <select id="cust_id" class="form-control"> -->
+      <!-- <option selected>Choose...</option>
+      <option>...</option> -->
+      {{form.cust_id|as_crispy_field}}
+    <!-- </select> -->
   </div>
 
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="scheduled_dep_time">Departure Time</label>
-      <input type="text" class="form-control" id="scheduled_dep_time">
+      <!-- <label for="scheduled_dep_time">Departure Time</label> -->
+      <!-- <input type="text" class="form-control" id="scheduled_dep_time"> -->
+      {{form.scheduled_dep_time|as_crispy_field}}
     </div>
     <div class="form-group col-md-6">
-      <label for="scheduled_arriv_time">Arrival Time</label>
-      <input type="text" class="form-control" id="scheduled_arriv_time">
+      <!-- <label for="scheduled_arriv_time">Arrival Time</label> -->
+      <!-- <input type="text" class="form-control" id="scheduled_arriv_time"> -->
+      {{form.scheduled_arriv_time|as_crispy_field}}
     </div>
   </div>
 
   <div class="form-group">
-    <label for="departure_airport">Departure Airport</label>
-    <input type="text" class="form-control" id="departure_airport" placeholder="DTW">
+    <!-- <label for="departure_airport">Departure Airport</label> -->
+    <!-- <input type="text" class="form-control" id="departure_airport" placeholder="DTW"> -->
+    {{form.departure_airport|as_crispy_field}}
   </div>
   <div class="form-group">
-    <label for="arrival_airport">Arrival Airport</label>
-    <input type="text" class="form-control" id="arrival_airport" placeholder="ICN">
+    <!-- <label for="arrival_airport">Arrival Airport</label> -->
+   <!-- <input type="text" class="form-control" id="arrival_airport" placeholder="ICN"> -->
+    {{form.arrival_airport|as_crispy_field}}
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-success">Submit</button>
+
 </form>
 {% endblock %}

@@ -16,12 +16,23 @@ from django.views import generic
 from django import forms
 from django.views.generic import FormView
 from django.views.generic import CreateView
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
 # Create your views here.
 
 class FlightCreateView(CreateView):
     model = Flight
     fields = ('flight_id', 'airplane_id', 'cust_id', 'scheduled_dep_time', 'scheduled_arriv_time', 'departure_airport', 'arrival_airport')
-    widgets = {'myDateField': forms.DateInput(attrs={'id': 'datetimepicker12'})}
+    # widgets = {'myDateField': forms.DateInput(attrs={'id': 'datetimepicker12'})}
+    def __init__(self, *args, **kwargs):
+        super(FlightCreateView, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-exampleForm'
+        self.helper.form_class = 'blueForms'
+        self.helper.form_method = 'post'
+        self.helper.form_action = 'submit_survey'
+
+        self.helper.add_input(Submit('submit', 'Submit'))
 
 class airplane_list_new(generic.ListView):
     model = Airplane
