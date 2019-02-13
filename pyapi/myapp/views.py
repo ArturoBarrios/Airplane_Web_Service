@@ -13,12 +13,17 @@ from rest_framework.views import APIView
 from django.views.decorators.csrf import csrf_exempt
 from myapp.models import Customer, Flight, Airport, Airplane
 from django.views import generic
+from django.views.generic.edit import CreateView
 # Create your views here.
 
 class airplane_list_new(generic.ListView):
     model = Airplane
 class customer_list_new(generic.ListView):
     model = Customer
+class CustomerCreate(CreateView):
+    model = Customer
+    fields = ['c_first_name','c_last_name','email','address','city','postal_code','phone']
+
 def index(request):
     """View function for home page of site."""
 

@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('airplane/', views.airplane_list_new.as_view(), name='airplane'),
     path('customer/', views.customer_list_new.as_view(), name='customer'),
+    path('create_customer/', views.CustomerCreate.as_view(), name='Create_Customer'),
     path('airplanes/', views.airplane_list),
     path('airplanes/<int:pk>', views.airplane_detail),
     path('airports/', views.airport_list),
