@@ -27,6 +27,9 @@ class airplane_list_new(generic.ListView):
     model = Airplane
 class customer_list_new(generic.ListView):
     model = Customer
+class CustomerCreate(CreateView):
+    model = Customer
+    fields = ['c_first_name','c_last_name','email','address','city','postal_code','phone']
 class flight_list_new(generic.ListView):
     model = Flight
 class customer_detail_new(generic.DetailView):

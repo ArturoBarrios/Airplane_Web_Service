@@ -6,7 +6,7 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
-
+from django.urls import reverse
 
 class Airplane(models.Model):
     airplane_id = models.IntegerField(primary_key=True, default=0)
@@ -36,14 +36,17 @@ class Airport(models.Model):
 
 
 class Customer(models.Model):
-    cust_id = models.IntegerField(primary_key=True, default=0)
-    c_first_name = models.TextField(default="")
-    c_last_name = models.TextField(default="")
-    address = models.TextField(default="")
-    city = models.TextField(default="")
-    postal_code = models.TextField(blank=True, null=True)
-    email = models.TextField(default="")
-    phone = models.IntegerField(default=0)
+    cust_id = models.AutoField(primary_key=True)
+    c_first_name = models.CharField('First Name',max_length=30,default="")
+    c_last_name = models.CharField('Last Name',max_length=30,default="")
+    address = models.CharField('Address',max_length=30,default="")
+    city = models.CharField('City',max_length=30,default="")
+    postal_code = models.CharField('Postal Code',max_length=30,blank=True, null=True)
+    email = models.CharField('Email',max_length=30,default="")
+    phone = models.IntegerField('Phone Number',null=False)
+
+    def get_absolute_url(self):
+        return reverse('customer', kwargs={})
 
 
     class Meta:
