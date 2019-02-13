@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from rest_framework.renderers import JSONRenderer
+from django.shortcuts import render
 from rest_framework.parsers import JSONParser
 from rest_framework import viewsets, views, status
 from django.http import HttpResponse, JsonResponse
@@ -10,7 +11,41 @@ from . import models
 from .serializers import *
 from rest_framework.views import APIView
 from django.views.decorators.csrf import csrf_exempt
+from myapp.models import Customer, Flight, Airport, Airplane
+from django.views import generic
+from django.views.generic.edit import CreateView
 # Create your views here.
+
+class airplane_list_new(generic.ListView):
+    model = Airplane
+class customer_list_new(generic.ListView):
+    model = Customer
+class CustomerCreate(CreateView):
+    model = Customer
+    fields = ['c_first_name','c_last_name','email','address','city','postal_code','phone']
+
+def index(request):
+    """View function for home page of site."""
+
+    # Generate counts of some of the main objects
+    num_cus = Customer.objects.all().count()
+    num_airplanes = Airplane.objects.all().count()
+
+    # Available books (status = 'a')
+    num_flights = Flight.objects.all().count()
+
+    # The 'all()' is implied by default.
+    num_airports = Airport.objects.all().count()
+
+    context = {
+        'num_customers': num_cus,
+        'num_airplanes': num_airplanes,
+        'num_flights': num_flights,
+        'num_airports': num_airports,
+    }
+
+    # Render the HTML template index.html with the data in the context variable
+    return render(request, 'index.html', context=context)
 
 @csrf_exempt
 def airplane_list(request):

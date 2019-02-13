@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Airplane List</h1>
+  {% if airplane_list %}
+  <ul>
+    {% for airplane in airplane_list %}
+      <li>
+        <a href="{{ airplane.get_absolute_url }}">{{ airplane.airplane_id }}</a><br/> 
+        ({{airplane.manufacturer}})<br/>
+        ({{airplane.max_seats}})<br/>
+        ({{airplane.type}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no airplanes in the category.</p>
+  {% endif %}
+{% endblock %}
