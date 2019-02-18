@@ -13,6 +13,7 @@ from rest_framework.views import APIView
 from django.views.decorators.csrf import csrf_exempt
 from myapp.models import Customer, Flight, Airport, Airplane
 from django.views import generic
+import slumber
 # Create your views here.
 
 class airplane_list_new(generic.ListView):
