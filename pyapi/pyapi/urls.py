@@ -20,8 +20,11 @@ from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
 
+router = routers.DefaultRouter()
+
 urlpatterns = [
     path(r'admin/', admin.site.urls),
     path('myapp/', include('myapp.urls')),
     path('', RedirectView.as_view(url='/myapp/', permanent=True)),
+    path('api/', include(router.urls)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -16,6 +16,7 @@ from django.views import generic
 from django import forms
 from django.views.generic import FormView
 from django.views.generic import CreateView
+import slumber
 # Create your views here.
 
 class FlightCreateView(CreateView):
