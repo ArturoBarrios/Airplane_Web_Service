@@ -21,9 +21,11 @@
           </tr>
         </tbody>
     </table>
-    <button type="button" class="btn btn-primary">Create</button>
-    <button type="button" class="btn btn-primary">Updata</button>
-    <button type="button" class="btn btn-primary">Delete</button>
+    <div clas="row">
+      <button type="button" class="btn btn-primary" onclick="window.location.href='#/createairplane/'">Create</button>
+      <button type="button" class="btn btn-primary">Updata</button>
+      <button type="button" class="btn btn-primary">Delete</button>
+    </div>
   </ul>
 </div>
 </template>
