@@ -7,97 +7,85 @@
     <div class="box">
 
       <!-- our signup form ===================== -->
-      <form id="signup-form">
-        <!-- first name -->
-        <div class="field">
-          <label class="label">First Name</label>
-          <input type="text" class="input" name="c_first_name">
+      <ul>
+        <div class="form-group">
+          <label class="col-form-label" for="customerID">Customer id:</label>
+          <input type="text" v-model="cust_id" class="form-control" placeholder="Customer id" id="cust_id">
         </div>
-          <!-- last name -->
-        <div class="field">
-          <label class="label">Last Name</label>
-          <input type="text" class="input" name="c_last_name">
+        <div class="form-group">
+          <label class="col-form-label" for="manufac">First Name:</label>
+          <input type="text" v-model="c_first_name" class="form-control" placeholder="First Name" id="c_first_name">
         </div>
-          <!-- address name -->
-        <div class="field">
-          <label class="label">Address</label>
-          <input type="text" class="input" name="address">
+        <div class="form-group">
+          <label class="col-form-label" for="maxSeats">Last Name:</label>
+          <input type="text" v-model="c_last_name" class="form-control" placeholder="Last Name" id="c_last_name">
         </div>
-
-        <div class="field">
-          <label class="label">City</label>
-          <input type="text" class="input" name="city">
+        <div class="form-group">
+          <label class="col-form-label" for="typ">Adress:</label>
+          <input type="text" v-model="address" class="form-control" placeholder="Address" id="address">
         </div>
-
-        <div class="field">
-          <label class="label">Postal Code</label>
-          <input type="text" class="input" name="postal_code">
+        <div class="form-group">
+          <label class="col-form-label" for="typ">City:</label>
+          <input type="text" v-model="city" class="form-control" placeholder="City" id="city">
         </div>
-
-        <!-- email -->
-        <div class="field">
-          <label class="label">Email</label>
-          <input type="email" class="input" name="email">
+        <div class="form-group">
+          <label class="col-form-label" for="typ">Postal code:</label>
+          <input type="text" v-model="postal_code" class="form-control" placeholder="Postal Code" id="postal_code">
         </div>
-
-        <div class="field">
-          <label class="label">Phone</label>
-          <input type="text" class="input" name="phone">
+        <div class="form-group">
+          <label class="col-form-label" for="typ">Email:</label>
+          <input type="text" v-model="email" class="form-control" placeholder="Email" id="email">
         </div>
-
-
-
-        <!-- submit button -->
-        <div class="field has-text-right">
-          <button type="submit" class="button is-danger" @click="addCustomer(customer)">Submit</button>
+        <div class="form-group">
+          <label class="col-form-label" for="typ">Phone:</label>
+          <input type="text" v-model="phone" class="form-control" placeholder="phone" id="phone">
         </div>
-      </form>
+        <button type="button" v-on:click="createpost ()" class="btn btn-primary">Submit</button>
+        {{cust_id}}
+        {{c_first_name}}
+        {{c_last_name}}
+        {{address}}
+        {{city}}
+        {{postal_code}}
+        {{email}}
+        {{phone}}
+      </ul>
 
     </div>
 
   </div>
   </div>
   </div>
-</template>
 
+</template>
 <script>
 import axios from 'axios'
 export default {
-  name: 'app',
+  name: 'CreateCustomer',
   data () {
     return {
+      cust_id: null,
       c_first_name: null,
       c_last_name: null,
       address: null,
       city: null,
       postal_code: null,
       email: null,
-      phone: null,
-      posts: []
+      phone: null
     }
   },
-  created() {
-    this.$http.get('posts').then((response) => {
-      this.posts = response.data
-    })
-    .catch((e) => {
-      console.error(e)
-    })
-  },
   methods: {
-    createPost () {
-      this.$http.post('posts', {
+    createpost () {
+      axios.post('http://127.0.0.1:8000/myapp/customers/', {
+        cust_id: this.cust_id,
         c_first_name: this.c_first_name,
         c_last_name: this.c_last_name,
         address: this.address,
         city: this.city,
         postal_code: this.postal_code,
         email: this.email,
-        phone: this.phone,
-      }).then((response) => {})
-      .catch((e) => {
-        console.error(e)
-      })
+        phone: this.phone
+      }).then((response) => {}).catch((e) => { console.error(e) })
     }
   }
 }
