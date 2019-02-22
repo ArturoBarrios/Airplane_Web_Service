@@ -85,7 +85,8 @@ export default {
         postal_code: this.postal_code,
         email: this.email,
         phone: this.phone
-      }).then((response) => {}).catch((e) => { console.error(e) })
+      }).then((response) => {window.location.href="'http://localhost:8080/#/listcustomers/"}).catch((e) => { console.error(e) })
+
     }
   }
 }
