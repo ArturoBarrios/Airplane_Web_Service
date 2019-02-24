@@ -8,6 +8,7 @@ import ListFlights from '@/components/ListFlights'
 import AddCustomer from '@/components/AddCustomer'
 import AddAirport from '@/components/AddAirport'
 import AddFlight from '@/components/AddFlight'
+import AddAirplane from '@/components/AddAirplane'
 
 Vue.use(Router)
 
@@ -52,6 +53,11 @@ export default new Router({
       path: '/addflight',
       name: 'AddFlight',
       component: AddFlight
+    },
+    {
+      path: '/addairplane',
+      name: 'AddAirplane',
+      component: AddAirplane
     }
 
   ]
