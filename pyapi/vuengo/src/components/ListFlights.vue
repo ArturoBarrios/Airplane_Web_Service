@@ -5,6 +5,7 @@
       <table class="table">
         <thead>
           <tr>
+            <th></th>
             <th scope="col">Flight id</th>
             <th scope="col">Airplane id</th>
             <th scope="col">Customer id</th>
@@ -12,10 +13,12 @@
             <th scope="col">Arrival Time</th>
             <th scope="col">Departure Airport</th>
             <th scope="col">Arrival Airport</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="flight in Flights" :key="flight.flight_id">
+            <td><a href="#/editcustomer/"><button type="button" class="btn btn-primary">Edit</button></a></td>
             <th scope="row">{{flight.flight_id}}</th>
             <td>{{flight.airplane_id}}</td>
             <td>{{flight.cust_id}}</td>
@@ -23,6 +26,7 @@
             <td>{{flight.scheduled_arriv_time}}</td>
             <td>{{flight.departure_airport}}</td>
             <td>{{flight.arrival_airport}}</td>
+            <td><a href="#/listflights/"><button type="button" v-on:click="deleteFlight (flight.flight_id)" color="error" class="btn btn-danger">Delete</button></a></td>
           </tr>
         </tbody>
       </table>
@@ -51,6 +55,15 @@ export default {
         method: 'get',
         url: 'http://127.0.0.1:8000/myapp/flights/'
       }).then(response => (this.Flights = response.data))
+    },
+    deleteFlight: function(id){
+      axios.delete('http://127.0.0.1:8000/myapp/flights/'+id)
+      .then((response)=>{
+        this.getFlights();
+      })
+      .catch((error)=>{
+        console.log(error);
+      });
     }
   }
 }

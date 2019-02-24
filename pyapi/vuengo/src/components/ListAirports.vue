@@ -5,18 +5,22 @@
       <table class="table">
         <thead>
           <tr>
+            <th></th>
             <th scope="col">Airport id</th>
             <th scope="col">Airport name</th>
             <th scope="col">City</th>
             <th scope="col">State</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="airport in Airports" :key="airport.airport_id">
+            <td><a href="#/editcustomer/"><button type="button" class="btn btn-primary">Edit</button></a></td>
             <th scope="row">{{airport.airport_id}}</th>
             <td>{{airport.airport_name}}</td>
             <td>{{airport.city}}</td>
             <td>{{airport.state}}</td>
+              <td><a href="#/listairports/"><button type="button" v-on:click="deleteAirport (airport.airport_id)" color="error" class="btn btn-danger">Delete</button></a></td>
           </tr>
         </tbody>
       </table>
@@ -45,6 +49,15 @@ export default {
         method: 'get',
         url: 'http://127.0.0.1:8000/myapp/airports/'
       }).then(response => (this.Airports = response.data))
+    },
+    deleteAirport: function(id){
+      axios.delete('http://127.0.0.1:8000/myapp/airports/'+id)
+      .then((response)=>{
+        this.getAirports();
+      })
+      .catch((error)=>{
+        console.log(error);
+      });
     }
   }
 }

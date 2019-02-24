@@ -79,7 +79,7 @@ export default {
         departure_airport: this.departure_airport,
         arrival_airport: this.arrival_airport
       }).then((response) => { window.location.href = 'http://localhost:8080/#/listflights/' }).catch((e) => {
-        console.error(e)
+        console.log(e)
       })
     }
   }

@@ -6,18 +6,22 @@
     <table class="table">
       <thead>
         <tr>
+          <th></th>
           <th scope="col">Airplane id</th>
           <th scope="col">Manufacturer</th>
           <th scope="col">Max Seats</th>
           <th scope="col">Type</th>
+          <th></th>
         </tr>
       </thead>
         <tbody>
           <tr v-for="airplane in Airplanes" :key="airplane.airplane_id">
+            <td><a href="#/editcustomer/"><button type="button" class="btn btn-primary">Edit</button></a></td>
             <th scope="row">{{airplane.airplane_id}}</th>
             <td>{{airplane.manufacturer}}</td>
             <td>{{airplane.max_seats}}</td>
             <td>{{airplane.type}}</td>
+            <td><a href="#/editcustomer/"><button type="button" class="btn btn-danger">Delete</button></a></td>
           </tr>
         </tbody>
     </table>
