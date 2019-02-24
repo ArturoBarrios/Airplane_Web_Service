@@ -6,26 +6,28 @@
     <table class="table">
       <thead>
         <tr>
+          <th></th>
           <th scope="col">Airplane id</th>
           <th scope="col">Manufacturer</th>
           <th scope="col">Max Seats</th>
           <th scope="col">Type</th>
+          <th></th>
         </tr>
       </thead>
         <tbody>
           <tr v-for="airplane in Airplanes" :key="airplane.airplane_id">
+            <td><a href="#/editcustomer/"><button type="button" class="btn btn-primary">Edit</button></a></td>
             <th scope="row">{{airplane.airplane_id}}</th>
             <td>{{airplane.manufacturer}}</td>
             <td>{{airplane.max_seats}}</td>
             <td>{{airplane.type}}</td>
+            <td><a href="#/listairplanes/"><button type="button" v-on:click="deleteAirplane (airplane.airplane_id)" color="error" class="btn btn-danger">Delete</button></a></td>
           </tr>
         </tbody>
     </table>
-    <div clas="row">
-      <button type="button" class="btn btn-primary" onclick="window.location.href='#/createairplane/'">Create</button>
-      <button type="button" class="btn btn-primary" onclick="window.location.href='#/updateairplane/'">Update</button>
-      <button type="button" class="btn btn-primary">Delete</button>
-    </div>
+    <a href="#/addairplane/"><button type="button" class="btn btn-primary">Create</button></a>
+    <button type="button" class="btn btn-primary" onclick="window.location.href='#/updateairplane/'">Update</button>
+    <button type="button" class="btn btn-primary">Delete</button>
   </ul>
 </div>
 </template>
@@ -48,6 +50,15 @@ export default {
         method: 'get',
         url: 'http://127.0.0.1:8000/myapp/airplanes/'
       }).then(response => (this.Airplanes = response.data))
+    },
+    deleteAirplane: function(id){
+      axios.delete('http://127.0.0.1:8000/myapp/airplanes/'+id)
+      .then((response)=>{
+        this.getAirplanes();
+      })
+      .catch((error)=>{
+        console.log(error);
+      });
     }
   }
 }

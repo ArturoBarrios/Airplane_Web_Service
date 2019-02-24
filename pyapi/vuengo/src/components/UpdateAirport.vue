@@ -56,7 +56,7 @@ export default {
         airport_name: this.airport_name,
         city: this.city,
         state: this.state
-      }).then((response) => {}).catch((e) => { console.error(e) })
+      }).then((response) => {window.location.href='#/listairplane'}).catch((e) => { console.error(e) })
     }
   }
 }
