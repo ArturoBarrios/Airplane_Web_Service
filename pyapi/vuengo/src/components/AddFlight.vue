@@ -3,21 +3,21 @@
   <div class="hero-body">
   <div class="container">
 
-    <h1 class="title has-text-centered">Customer Registration</h1>
+    <h1 class="title has-text-centered">Flight Registration</h1>
     <div class="box">
 
       <!-- our signup form ===================== -->
       <ul>
         <div class="form-group">
-          <label class="col-form-label" for="customerID">Flight id:</label>
+          <label class="col-form-label" for="customerId">Flight id:</label>
           <input type="text" v-model="flight_id" class="form-control" placeholder="Flight id" id="flight_id">
         </div>
         <div class="form-group">
-          <label class="col-form-label" for="manufac">Airplane id:</label>
+          <label class="col-form-label" for="airplaneId">Airplane id:</label>
           <input type="text" v-model="airplane_id" class="form-control" placeholder="Airplane id" id="airplane_id">
         </div>
         <div class="form-group">
-          <label class="col-form-label" for="maxSeats">Customer id:</label>
+          <label class="col-form-label" for="customerId">Customer id:</label>
           <input type="text" v-model="cust_id" class="form-control" placeholder="Customer id" id="cust_id">
         </div>
         <div class="form-group">

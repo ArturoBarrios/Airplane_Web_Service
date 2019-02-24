@@ -52,9 +52,9 @@ class Customer(models.Model):
 
 
 class Flight(models.Model):
-    flight_id = models.IntegerField(primary_key=True, default=0)
-    airplane_id = models.ForeignKey('Airplane', on_delete=models.CASCADE, default=0)
-    cust_id = models.ForeignKey('Customer', on_delete=models.CASCADE, default=0)
+    flight_id = models.IntegerField(primary_key=True, null=False)
+    airplane_id = models.ForeignKey('Airplane',null=True, on_delete=models.CASCADE)
+    cust_id = models.ForeignKey('Customer',null=True, on_delete=models.CASCADE)
     scheduled_dep_time = models.TextField(null=True, blank=True)
     scheduled_arriv_time = models.TextField(null=True, blank=True)
     departure_airport = models.TextField(blank=True,null=True)  # Field name made lowercase.
