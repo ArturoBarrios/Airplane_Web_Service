@@ -7,6 +7,7 @@ import ListCustomers from '@/components/ListCustomers'
 import ListFlights from '@/components/ListFlights'
 import CreateAirplane from '@/components/CreateAirplane'
 import UpdateAirplane from '@/components/UpdateAirplane'
+import UpdateAirport from '@/components/UpdateAirport'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/updateairplane',
       name: 'UpdateAirplane',
       component: UpdateAirplane
+    },
+    {
+      path: '/updateairport',
+      name: 'UpdateAirport',
+      component: UpdateAirport
     }
   ]
 })

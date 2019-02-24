@@ -21,7 +21,7 @@
         </tbody>
       </table>
       <button type="button" class="btn btn-primary">Create</button>
-      <button type="button" class="btn btn-primary">Updata</button>
+      <button type="button" class="btn btn-primary" onclick="window.location.href='#/updateairport'">Update</button>
       <button type="button" class="btn btn-primary">Delete</button>
     </ul>
   </div>
