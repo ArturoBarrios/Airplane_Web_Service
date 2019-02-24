@@ -76,7 +76,7 @@ export default {
   },
   methods: {
     createpost () {
-      axios.post('http://127.0.0.1:8000/myapp/customers/', {
+      axios.put('http://127.0.0.1:8000/myapp/customers/1', {
         cust_id: this.cust_id,
         c_first_name: this.c_first_name,
         c_last_name: this.c_last_name,

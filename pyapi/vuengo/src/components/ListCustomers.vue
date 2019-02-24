@@ -10,6 +10,7 @@
           <th scope="col">Address</th>
           <th scope="col">Email</th>
           <th scope="col">Phone</th>
+
         </tr>
       </thead>
         <tbody>
@@ -19,6 +20,7 @@
             <td>{{customer.address}}, {{customer.city}}, {{customer.postal_code}}</td>
             <td>{{customer.email}}</td>
             <td>{{customer.phone}}</td>
+            <td><a href="#/editcustomer/"><button type="button" class="btn btn-primary">Edit</button></a></td>
           </tr>
         </tbody>
     </table>

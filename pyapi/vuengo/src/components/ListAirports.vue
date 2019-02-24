@@ -20,7 +20,7 @@
           </tr>
         </tbody>
       </table>
-      <button type="button" class="btn btn-primary">Create</button>
+      <a href="#/addairport/"><button type="button" class="btn btn-primary">Create</button></a>
       <button type="button" class="btn btn-primary">Updata</button>
       <button type="button" class="btn btn-primary">Delete</button>
     </ul>
