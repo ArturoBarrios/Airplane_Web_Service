@@ -23,7 +23,7 @@
     </table>
     <div clas="row">
       <button type="button" class="btn btn-primary" onclick="window.location.href='#/createairplane/'">Create</button>
-      <button type="button" class="btn btn-primary">Updata</button>
+      <button type="button" class="btn btn-primary" onclick="window.location.href='#/updateairplane/'">Update</button>
       <button type="button" class="btn btn-primary">Delete</button>
     </div>
   </ul>

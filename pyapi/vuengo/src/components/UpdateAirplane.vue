@@ -1,11 +1,15 @@
 <template>
   <div>
-    <h1>Create Airplane</h1>
+    <h1>Update Airplane</h1>
     <ul>
       <div class="form-group">
         <label class="col-form-label" for="airplaneID">Airplane id:</label>
-        <input type="text" v-model="airplane_id" class="form-control" placeholder="Airplane id" id="airplane_id">
-      </div>
+        <select class="form-control" v-model="airplane_id" id="airplane_id" placeholder="Airplane id">
+          <option v-for="airplane in Airplanes" :key="airplane.airplane_id">
+            {{airplane.airplane_id}}
+          </option>
+        </select>
+    </div>
       <div class="form-group">
         <label class="col-form-label" for="manufac">Manufacturer:</label>
         <input type="text" v-model="manufacturer" class="form-control" placeholder="Manufacturer" id="manufacturer">
@@ -18,7 +22,7 @@
         <label class="col-form-label" for="typ">Type:</label>
         <input type="text" v-model="type" class="form-control" placeholder="Type" id="type">
       </div>
-      <button type="button" v-on:click="createpost ()" class="btn btn-primary">Submit</button>
+      <button type="button" v-on:click="createput ()" class="btn btn-primary">Submit</button>
     </ul>
   </div>
 </template>
@@ -26,18 +30,28 @@
 <script>
 import axios from 'axios'
 export default {
-  name: 'CreateAirplane',
+  name: 'UpdateAirplane',
   data () {
     return {
       airplane_id: null,
       manufacturer: null,
       max_seats: null,
-      type: null
+      type: null,
+      Airplanes: []
     }
   },
+  mounted () {
+    this.getAirplanes()
+  },
   methods: {
-    createpost () {
-      axios.post('http://127.0.0.1:8000/myapp/airplanes/', {
+    getAirplanes () {
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:8000/myapp/airplanes/'
+      }).then(response => (this.Airplanes = response.data))
+    },
+    createput () {
+      axios.put('http://127.0.0.1:8000/myapp/airplanes/' + this.airplane_id, {
         airplane_id: this.airplane_id,
         manufacturer: this.manufacturer,
         max_seats: this.max_seats,
