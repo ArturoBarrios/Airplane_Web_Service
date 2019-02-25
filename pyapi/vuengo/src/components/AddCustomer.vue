@@ -14,41 +14,42 @@
         </div>
         <div class="form-group">
           <label class="col-form-label" for="manufac">First Name:</label>
-          <input type="text" v-model="c_first_name" class="form-control" placeholder="First Name" id="c_first_name">
+          <input type="text" v-model="c_first_name" class="form-control" placeholder="John" id="c_first_name">
         </div>
         <div class="form-group">
           <label class="col-form-label" for="maxSeats">Last Name:</label>
-          <input type="text" v-model="c_last_name" class="form-control" placeholder="Last Name" id="c_last_name">
+          <input type="text" v-model="c_last_name" class="form-control" placeholder="Smith" id="c_last_name">
         </div>
         <div class="form-group">
-          <label class="col-form-label" for="typ">Adress:</label>
-          <input type="text" v-model="address" class="form-control" placeholder="Address" id="address">
+          <label class="col-form-label" for="typ">Address:</label>
+          <input type="text" v-model="address" class="form-control" placeholder="1234 Apple St" id="address">
         </div>
         <div class="form-group">
           <label class="col-form-label" for="typ">City:</label>
-          <input type="text" v-model="city" class="form-control" placeholder="City" id="city">
+          <input type="text" v-model="city" class="form-control" placeholder="Columbus" id="city">
         </div>
         <div class="form-group">
           <label class="col-form-label" for="typ">Postal code:</label>
-          <input type="text" v-model="postal_code" class="form-control" placeholder="Postal Code" id="postal_code">
+          <input type="text" v-model="postal_code" class="form-control" placeholder="43201" id="postal_code">
         </div>
         <div class="form-group">
           <label class="col-form-label" for="typ">Email:</label>
-          <input type="text" v-model="email" class="form-control" placeholder="Email" id="email">
+          <input type="email" v-model="email" class="form-control" placeholder="smith.1@osu.edu" id="email">
         </div>
         <div class="form-group">
           <label class="col-form-label" for="typ">Phone:</label>
-          <input type="text" v-model="phone" class="form-control" placeholder="phone" id="phone">
+          <input type="tel" v-model="phone" class="form-control" placeholder="1234567890" id="phone">
         </div>
-        <button type="button" v-on:click="createpost ()" class="btn btn-primary">Submit</button>
-        {{cust_id}}
-        {{c_first_name}}
-        {{c_last_name}}
-        {{address}}
-        {{city}}
-        {{postal_code}}
-        {{email}}
-        {{phone}}
+
+        <div class="form-row align-items-left">
+           <div class="col-auto">
+            <button type="button" v-on:click="createpost ()" class="btn btn-primary">Submit</button>
+           </div>
+           <div class="col-auto">
+            <a href="#/listcustomers/"><button type="button" class="btn btn-primary">Back</button></a>
+          </div>
+        </div>
+
       </ul>
 
     </div>

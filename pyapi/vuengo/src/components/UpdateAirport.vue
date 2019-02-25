@@ -3,7 +3,7 @@
     <h1>Update Airport</h1>
     <ul>
       <div class="form-group">
-        <label class="col-form-label" for="airportID">Airport id:</label>
+        <label class="col-form-label" for="airportID">Airport Id:</label>
         <select class="form-control" v-model="airport_id" id="airport_id" placeholder="Airport id">
           <option v-for="airport in Airports" :key="airport.airport_id">
             {{airport.airport_id}}
@@ -11,18 +11,27 @@
         </select>
     </div>
       <div class="form-group">
-        <label class="col-form-label" for="airportName">Airport Name:</label>
-        <input type="text" v-model="airport_name" class="form-control" placeholder="Airport Name" id="airport_name">
+        <label class="col-form-label" for="airportName">Airport Code:</label>
+        <input type="text" v-model="airport_name" class="form-control" placeholder="CMH" id="airport_name">
       </div>
       <div class="form-group">
         <label class="col-form-label" for="citi">City:</label>
-        <input type="text" v-model="city" class="form-control" placeholder="City" id="city">
+        <input type="text" v-model="city" class="form-control" placeholder="Columbus" id="city">
       </div>
       <div class="form-group">
         <label class="col-form-label" for="stat">State:</label>
-        <input type="text" v-model="state" class="form-control" placeholder="State" id="state">
+        <input type="text" v-model="state" class="form-control" placeholder="Ohio" id="state">
       </div>
-      <button type="button" v-on:click="createput ()" class="btn btn-primary">Submit</button>
+
+      <div class="form-row align-items-left">
+         <div class="col-auto">
+          <button type="button" v-on:click="createput ()" class="btn btn-primary" onclick="window.location.href='#/listairports'">Submit</button>
+         </div>
+         <div class="col-auto">
+          <a href="#/listairports/"><button type="button" class="btn btn-primary">Back</button></a>
+        </div>
+      </div>
+
     </ul>
   </div>
 </template>

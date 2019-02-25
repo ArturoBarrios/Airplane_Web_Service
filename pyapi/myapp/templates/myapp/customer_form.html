@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+
+{% load crispy_forms_tags %}
+
+**myapp/customer_form.html**
+
+{% block content %}
+
+<form method="post" novalidate>
+  {% csrf_token %}
+
+  <div class="row">
+    <div class="col-6">
+      {{form.c_first_name|as_crispy_field}}
+    </div>
+    <div class="col-6">
+      {{form.c_last_name|as_crispy_field}}
+    </div>
+  </div>
+  {{form.email|as_crispy_field}}
+  {{form.address|as_crispy_field}}
+  <div class="row">
+    <div class="col-4">
+      {{form.city|as_crispy_field}}
+    </div>
+    <div class="col-4">
+      {{form.postal_code|as_crispy_field}}
+    </div>
+    <div class="col-4">
+      {{form.phone|as_crispy_field}}
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success">Create Account</button>
+
+</form>
+{% endblock %}

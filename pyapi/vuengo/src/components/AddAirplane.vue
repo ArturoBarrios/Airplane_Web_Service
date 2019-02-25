@@ -14,21 +14,26 @@
         </div>
         <div class="form-group">
           <label class="col-form-label" for="manufac">Manufacurer:</label>
-          <input type="text" v-model="manufacturer" class="form-control" placeholder="Manufacurer" id="manufacturer">
+          <input type="text" v-model="manufacturer" class="form-control" placeholder="Boeing" id="manufacturer">
         </div>
         <div class="form-group">
           <label class="col-form-label" for="maxSeats">Max Seats:</label>
-          <input type="text" v-model="max_seats" class="form-control" placeholder="Max Seats" id="max_seats">
+          <input type="text" v-model="max_seats" class="form-control" placeholder="280" id="max_seats">
         </div>
         <div class="form-group">
           <label class="col-form-label" for="typ">Type:</label>
-          <input type="text" v-model="type" class="form-control" placeholder="Type" id="type">
+          <input type="text" v-model="type" class="form-control" placeholder="A320" id="type">
         </div>
-        <button type="button" v-on:click="createpost ()" class="btn btn-primary">Submit</button>
-        {{airplane_id}}
-        {{manufacturer}}
-        {{max_seats}}
-        {{type}}
+
+        <div class="form-row align-items-left">
+           <div class="col-auto">
+            <button type="button" v-on:click="createpost ()" class="btn btn-primary">Submit</button>
+           </div>
+           <div class="col-auto">
+            <a href="#/listairplanes/"><button type="button" class="btn btn-primary">Back</button></a>
+          </div>
+        </div>
+
       </ul>
     </div>
   </div>

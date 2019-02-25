@@ -11,15 +11,26 @@ from . import models
 from .serializers import *
 from rest_framework.views import APIView
 from django.views.decorators.csrf import csrf_exempt
-from myapp.models import Customer, Flight, Airport, Airplane
+from myapp.models import Customer, Flight, Airport, Airplane, Customer_Airplane, Flight_Airplane, Flight_Airport, Flight_Customer
 from django.views import generic
+from django import forms
+from django.views.generic import FormView
+from django.views.generic import CreateView
 import slumber
 # Create your views here.
+
+class FlightCreateView(CreateView):
+    model = Flight
+    fields = ('flight_id', 'airplane_id', 'cust_id', 'scheduled_dep_time', 'scheduled_arriv_time', 'departure_airport', 'arrival_airport')
+    widgets = {'myDateField': forms.DateInput(attrs={'id': 'datetimepicker12'})}
 
 class airplane_list_new(generic.ListView):
     model = Airplane
 class customer_list_new(generic.ListView):
     model = Customer
+class CustomerCreate(CreateView):
+    model = Customer
+    fields = ['c_first_name','c_last_name','email','address','city','postal_code','phone']
 class flight_list_new(generic.ListView):
     model = Flight
 class customer_detail_new(generic.DetailView):

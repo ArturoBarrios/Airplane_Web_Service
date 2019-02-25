@@ -19,7 +19,7 @@ class CustomerSerializer(serializers.ModelSerializer):
 class FlightSerializer(serializers.ModelSerializer):
     class Meta:
         model = Flight
-        fields = ('flight_id', 'cust_id', 'scheduled_dep_time', 'scheduled_arriv_time', 'departure_airport', 'arrival_airport')
+        fields = ('flight_id','airplane_id', 'cust_id','date_arriv','date_dep', 'scheduled_dep_time', 'scheduled_arriv_time', 'departure_airport', 'arrival_airport')
 
 class CustomerAirplaneSerializer(serializers.ModelSerializer):
     class Meta:
