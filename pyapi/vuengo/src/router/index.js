@@ -5,6 +5,10 @@ import HomePage from '@/components/HomePage'
 import ListAirports from '@/components/ListAirports'
 import ListCustomers from '@/components/ListCustomers'
 import ListFlights from '@/components/ListFlights'
+import AddCustomer from '@/components/AddCustomer'
+import AddAirport from '@/components/AddAirport'
+import AddFlight from '@/components/AddFlight'
+import AddAirplane from '@/components/AddAirplane'
 
 Vue.use(Router)
 
@@ -34,6 +38,27 @@ export default new Router({
       path: '/listflights',
       name: 'ListFlights',
       component: ListFlights
+    },
+    {
+      path: '/addcustomer',
+      name: 'AddCustomer',
+      component: AddCustomer
+    },
+    {
+      path: '/addairport',
+      name: 'AddAirport',
+      component: AddAirport
+    },
+    {
+      path: '/addflight',
+      name: 'AddFlight',
+      component: AddFlight
+    },
+    {
+      path: '/addairplane',
+      name: 'AddAirplane',
+      component: AddAirplane
     }
+
   ]
 })
