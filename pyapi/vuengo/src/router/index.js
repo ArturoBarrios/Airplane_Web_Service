@@ -14,6 +14,8 @@ import AddAirport from '@/components/AddAirport'
 import AddFlight from '@/components/AddFlight'
 import AddAirplane from '@/components/AddAirplane'
 import EditAirplane from '@/components/EditAirplane'
+import EditCustomer from '@/components/EditCustomer'
+import EditFlight from '@/components/EditFlight'
 
 Vue.use(Router)
 
@@ -53,6 +55,16 @@ export default new Router({
       path: '/updateairplane/:id',
       name: 'EditAirplane',
       component: EditAirplane
+    },
+    {
+      path: '/updatecustomer/:id',
+      name: 'EditCustomer',
+      component: EditCustomer
+    },
+    {
+      path: '/updateflight/:id',
+      name: 'EditFlight',
+      component: EditFlight
     },
     {
       path: '/updateairport',
