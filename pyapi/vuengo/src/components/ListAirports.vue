@@ -24,8 +24,8 @@
           </tr>
         </tbody>
       </table>
-      <button type="button" class="btn btn-primary" onclick="window.location.href='#/addairport/'">Create</button>
-      <button type="button" class="btn btn-primary">Update</button>
+      <a href="#/addairport/"><button type="button" class="btn btn-primary">Create</button></a>
+      <button type="button" class="btn btn-primary" onclick="window.location.href='#/updateairport'">Update</button>
       <button type="button" class="btn btn-primary">Delete</button>
     </ul>
   </div>

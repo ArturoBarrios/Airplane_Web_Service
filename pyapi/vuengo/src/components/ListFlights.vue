@@ -56,14 +56,14 @@ export default {
         url: 'http://127.0.0.1:8000/myapp/flights/'
       }).then(response => (this.Flights = response.data))
     },
-    deleteFlight: function(id){
-      axios.delete('http://127.0.0.1:8000/myapp/flights/'+id)
-      .then((response)=>{
-        this.getFlights();
+    deleteFlight: function (id) {
+      axios.delete('http://127.0.0.1:8000/myapp/flights/' + id
+    ).then((response)=>{
+        this.getFlights()
       })
       .catch((error)=>{
-        console.log(error);
-      });
+        console.log(error)
+      })
     }
   }
 }
