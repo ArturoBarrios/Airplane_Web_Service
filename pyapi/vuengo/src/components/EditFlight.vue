@@ -41,7 +41,7 @@
 
       <div class="form-row align-items-left">
          <div class="col-auto">
-          <button type="button" v-on:click="createput ()" class="btn btn-primary" onclick="window.location.href='#/listflights'">Submit</button>
+          <button type="button" v-on:click="createput ()" class="btn btn-primary">Submit</button>
          </div>
          <div class="col-auto">
           <a href="#/listflights/"><button type="button" class="btn btn-primary">Back</button></a>
