@@ -16,7 +16,7 @@
       </thead>
         <tbody>
           <tr v-for="airplane in Airplanes" :key="airplane.airplane_id">
-            <td><a href="#/updateairplane/"><button type="button" class="btn btn-primary">Edit</button></a></td>
+            <td><router-link :to="{ name: 'EditAirplane', params: {id: airplane.airplane_id} }"><button type="button" class="btn btn-primary">Edit</button></router-link></td>
             <th scope="row">{{airplane.airplane_id}}</th>
             <td>{{airplane.manufacturer}}</td>
             <td>{{airplane.max_seats}}</td>
