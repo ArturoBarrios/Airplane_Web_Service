@@ -14,12 +14,9 @@ import AddAirport from '@/components/AddAirport'
 import AddFlight from '@/components/AddFlight'
 import AddAirplane from '@/components/AddAirplane'
 import EditAirplane from '@/components/EditAirplane'
-<<<<<<< HEAD
-import EditAirport from '@/components/EditAirport'
-=======
 import EditCustomer from '@/components/EditCustomer'
 import EditFlight from '@/components/EditFlight'
->>>>>>> 51417321045f566c38bd4ae492b5f6a04d7680d0
+import EditAirport from '@/components/EditAirport'
 
 Vue.use(Router)
 
