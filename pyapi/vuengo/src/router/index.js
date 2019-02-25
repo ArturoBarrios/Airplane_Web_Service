@@ -5,6 +5,18 @@ import HomePage from '@/components/HomePage'
 import ListAirports from '@/components/ListAirports'
 import ListCustomers from '@/components/ListCustomers'
 import ListFlights from '@/components/ListFlights'
+import UpdateAirplane from '@/components/UpdateAirplane'
+import UpdateAirport from '@/components/UpdateAirport'
+import UpdateCustomer from '@/components/UpdateCustomer'
+import UpdateFlight from '@/components/UpdateFlight'
+import AddCustomer from '@/components/AddCustomer'
+import AddAirport from '@/components/AddAirport'
+import AddFlight from '@/components/AddFlight'
+import AddAirplane from '@/components/AddAirplane'
+import EditAirplane from '@/components/EditAirplane'
+import EditCustomer from '@/components/EditCustomer'
+import EditFlight from '@/components/EditFlight'
+import EditAirport from '@/components/EditAirport'
 
 Vue.use(Router)
 
@@ -34,6 +46,66 @@ export default new Router({
       path: '/listflights',
       name: 'ListFlights',
       component: ListFlights
+    },
+    {
+      path: '/updateairplane',
+      name: 'UpdateAirplane',
+      component: UpdateAirplane
+    },
+    {
+      path: '/updateairplane/:id',
+      name: 'EditAirplane',
+      component: EditAirplane
+    },
+    {
+      path: '/updatecustomer/:id',
+      name: 'EditCustomer',
+      component: EditCustomer
+    },
+    {
+      path: '/updateflight/:id',
+      name: 'EditFlight',
+      component: EditFlight
+    },
+    {
+      path: '/updateairport',
+      name: 'UpdateAirport',
+      component: UpdateAirport
+    },
+    {
+      path: '/updatecustomer',
+      name: 'updateCustomer',
+      component: UpdateCustomer
+    },
+    {
+      path: '/updateflight',
+      name: 'UpdateFlight',
+      component: UpdateFlight
+    },
+    {
+      path: '/addcustomer',
+      name: 'AddCustomer',
+      component: AddCustomer
+    },
+    {
+      path: '/addairport',
+      name: 'AddAirport',
+      component: AddAirport
+    },
+    {
+      path: '/addflight',
+      name: 'AddFlight',
+      component: AddFlight
+    },
+    {
+      path: '/addairplane',
+      name: 'AddAirplane',
+      component: AddAirplane
+    },
+    {
+      path: '/updateairport/:id',
+      name: 'EditAirport',
+      component: EditAirport
     }
   ]
 })

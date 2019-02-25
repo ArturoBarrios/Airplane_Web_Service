@@ -1,29 +1,31 @@
 
 <template>
 <div>
+<br>
   <h1>Airplane List</h1>
   <ul>
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Airplane id</th>
+          <th></th>
           <th scope="col">Manufacturer</th>
           <th scope="col">Max Seats</th>
           <th scope="col">Type</th>
+          <th></th>
         </tr>
       </thead>
         <tbody>
           <tr v-for="airplane in Airplanes" :key="airplane.airplane_id">
-            <th scope="row">{{airplane.airplane_id}}</th>
+            <td><router-link :to="{ name: 'EditAirplane', params: {id: airplane.airplane_id} }"><button type="button" class="btn btn-primary">Edit</button></router-link></td>
             <td>{{airplane.manufacturer}}</td>
             <td>{{airplane.max_seats}}</td>
             <td>{{airplane.type}}</td>
+            <td><a href="#/listairplanes/"><button type="button" v-on:click="deleteAirplane (airplane.airplane_id)" color="error" class="btn btn-danger">Delete</button></a></td>
           </tr>
         </tbody>
     </table>
-    <button type="button" class="btn btn-primary">Create</button>
-    <button type="button" class="btn btn-primary">Updata</button>
-    <button type="button" class="btn btn-primary">Delete</button>
+    <hr>
+    <a href="#/addairplane/"><button type="button" class="btn btn-primary">Add Airplane</button></a>
   </ul>
 </div>
 </template>
@@ -46,6 +48,15 @@ export default {
         method: 'get',
         url: 'http://127.0.0.1:8000/myapp/airplanes/'
       }).then(response => (this.Airplanes = response.data))
+    },
+    deleteAirplane: function(id){
+      axios.delete('http://127.0.0.1:8000/myapp/airplanes/'+id)
+      .then((response)=>{
+        this.getAirplanes();
+      })
+      .catch((error)=>{
+        console.log(error);
+      });
     }
   }
 }

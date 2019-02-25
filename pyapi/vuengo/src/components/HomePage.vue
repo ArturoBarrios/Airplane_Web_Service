@@ -1,6 +1,8 @@
 <template>
-  <div class="HomePage">
-    <h1>Home</h1>
+  <div align="center" class="HomePage">
+    <br/><br/>
+    <h1>NetJets CSE 5915 Homepage!</h1>
+    <p>This is the website part of our testing framework project.</p>
   </div>
 </template>
 
