@@ -71,7 +71,7 @@ export default {
       scheduled_arriv_time: null,
       departure_airport: null,
       arrival_airport: null,
-      Airports: []
+      Flights: []
     }
   },
   mounted () {
