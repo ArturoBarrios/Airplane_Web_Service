@@ -15,7 +15,7 @@
         </thead>
         <tbody>
           <tr v-for="airport in Airports" :key="airport.airport_id">
-            <td><a href="#/editcustomer/"><button type="button" class="btn btn-primary">Edit</button></a></td>
+            <td><router-link :to="{ name: 'EditAirport', params: {id: airport.airport_id} }"><button type="button" class="btn btn-primary">Edit</button></router-link></td>
             <th scope="row">{{airport.airport_id}}</th>
             <td>{{airport.airport_name}}</td>
             <td>{{airport.city}}</td>
