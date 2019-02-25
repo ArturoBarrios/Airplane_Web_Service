@@ -7,12 +7,20 @@
         <input type="text" readonly="" class="form-control" :placeholder="flight_id" id="flight_id">
       </div>
       <div class="form-group">
-        <label class="col-form-label" for="airplane_id">Airplane Id:</label>
-        <input type="text" v-model="airplane_id" class="form-control" :placeholder="flight.airplane_id" id="airplane_id">
+        <label class="col-form-label" for="airplaneID">Airplane Id:</label>
+        <select class="form-control" v-model="airplane_id" id="type" placeholder="Airplane Id">
+          <option v-for="airplane in Airplanes" :key="airplane.airplane_id">
+            {{airplane.airplane_id}}
+          </option>
+        </select>
       </div>
       <div class="form-group">
         <label class="col-form-label" for="cust_id">Customer Id:</label>
-        <input type="text" v-model="cust_id" class="form-control" :placeholder="flight.cust_id" id="cust_id">
+        <select class="form-control" v-model="cust_id" id="cust_id" placeholder="Customer id">
+          <option v-for="customer in Customers" :key="customer.cust_id">
+            {{customer.cust_id}}
+          </option>
+        </select>
       </div>
       <div class="form-group">
         <label class="col-form-label" for="departure_airport">Departure Airport:</label>
@@ -47,7 +55,6 @@
           <a href="#/listflights/"><button type="button" class="btn btn-primary">Back</button></a>
         </div>
       </div>
-
     </ul>
   </div>
 </template>
@@ -67,7 +74,22 @@ export default {
       scheduled_arriv_time: null,
       departure_airport: null,
       arrival_airport: null,
-      flight: null
+      flight: null,
+      airplane_id: null,
+      manufacturer: null,
+      max_seats: null,
+      type: null,
+      Airplanes: [],
+      cust_id: null,
+      c_first_name: null,
+      c_last_name: null,
+      address: null,
+      city: null,
+      postal_code: null,
+      email: null,
+      phone: null,
+      customer: null,
+      Customers: []
     }
   },
   created () {
@@ -75,6 +97,8 @@ export default {
   },
   mounted () {
     this.getFlights()
+    this.getAirplanes()
+    this.getCustomers()
   },
   methods: {
     getFlights () {
@@ -82,6 +106,18 @@ export default {
         method: 'get',
         url: 'http://127.0.0.1:8000/myapp/flights/' + this.flight_id
       }).then(response => (this.flight = response.data))
+    },
+    getAirplanes () {
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:8000/myapp/airplanes/'
+      }).then(response => (this.Airplanes = response.data))
+    },
+    getCustomers () {
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:8000/myapp/customers/'
+      }).then(response => (this.Customers = response.data))
     },
     createput () {
       axios.put('http://127.0.0.1:8000/myapp/flights/' + this.flight_id, {

@@ -7,7 +7,7 @@
       <thead>
         <tr>
           <th></th>
-          <th scope="col">Airplane id</th>
+          <th scope="col">Airplane Id</th>
           <th scope="col">Manufacturer</th>
           <th scope="col">Max Seats</th>
           <th scope="col">Type</th>
@@ -26,8 +26,6 @@
         </tbody>
     </table>
     <a href="#/addairplane/"><button type="button" class="btn btn-primary">Create</button></a>
-    <button type="button" class="btn btn-primary" onclick="window.location.href='#/updateairplane/'">Update</button>
-    <button type="button" class="btn btn-primary">Delete</button>
   </ul>
 </div>
 </template>
