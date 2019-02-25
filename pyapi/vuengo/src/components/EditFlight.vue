@@ -86,7 +86,7 @@ export default {
     createput () {
       axios.put('http://127.0.0.1:8000/myapp/flights/' + this.flight_id, {
         flight_id: this.flight_id,
-        aiplane_id: this.airplane_id,
+        airplane_id: this.airplane_id,
         cust_id: this.cust_id,
         date_arriv: this.date_arriv,
         date_dep: this.date_dep,
