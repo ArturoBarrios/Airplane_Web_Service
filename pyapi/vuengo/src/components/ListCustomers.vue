@@ -16,7 +16,7 @@
       </thead>
         <tbody>
           <tr v-for="customer in Customers" :key="customer.cust_id">
-            <td><a href="#/editcustomer/"><button type="button" class="btn btn-primary">Edit</button></a></td>
+            <td><router-link :to="{ name: 'EditCustomer', params: {id: customer.cust_id} }"><button type="button" class="btn btn-primary">Edit</button></router-link></td>
             <th scope="row">{{customer.cust_id}}</th>
             <th>{{customer.c_first_name}} {{customer.c_last_name}}</th>
             <td>{{customer.address}}, {{customer.city}}, {{customer.postal_code}}</td>

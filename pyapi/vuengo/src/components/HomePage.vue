@@ -2,7 +2,7 @@
   <div align="center" class="HomePage">
     <br/><br/>
     <h1>NetJets CSE 5915 Homepage!</h1>
-    <p>This is the website for our testing framework project.</p>
+    <p>This is the website part of our testing framework project.</p>
   </div>
 </template>
 

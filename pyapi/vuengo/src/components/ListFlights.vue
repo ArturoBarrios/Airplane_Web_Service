@@ -20,7 +20,7 @@
         </thead>
         <tbody>
           <tr v-for="flight in Flights" :key="flight.flight_id">
-            <td><a href="#/editcustomer/"><button type="button" class="btn btn-primary">Edit</button></a></td>
+            <td><router-link :to="{ name: 'EditFlight', params: {id: flight.flight_id} }"><button type="button" class="btn btn-primary">Edit</button></router-link></td>
             <td scope="row">{{flight.flight_id}}</td>
             <td>{{flight.airplane_id}}</td>
             <td>{{flight.cust_id}}</td>
