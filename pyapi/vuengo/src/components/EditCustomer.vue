@@ -1,6 +1,9 @@
 <template>
-  <div>
+<div class="hero is-fullheight is-info is-bold">
+<div class="hero-body">
+<div class="container">
     <h1>Update Customer</h1>
+    <div class="box">
     <ul>
       <div class="form-group">
         <label class="col-form-label" for="cust_id">Customer Id:</label>
@@ -37,7 +40,7 @@
 
       <div class="form-row align-items-left">
          <div class="col-auto">
-          <button type="button" v-on:click="createput ()" class="btn btn-primary" onclick="window.location.href='#/listcustomers'">Submit</button>
+          <button type="button" v-on:click="createput ()" class="btn btn-primary">Submit</button>
          </div>
          <div class="col-auto">
           <a href="#/listcustomers/"><button type="button" class="btn btn-primary">Back</button></a>
@@ -45,6 +48,10 @@
       </div>
 
     </ul>
+  </div>
+
+  </div>
+  </div>
   </div>
 </template>
 
@@ -88,7 +95,7 @@ export default {
         postal_code: this.postal_code,
         email: this.email,
         phone: this.phone
-      }).then((response) => {}).catch((e) => { console.error(e) })
+      }).then((response) => {window.location.href='#/listcustomers'}).catch((e) => { console.error(e) })
     }
   }
 }

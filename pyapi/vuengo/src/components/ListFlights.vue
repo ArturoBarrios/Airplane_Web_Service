@@ -1,12 +1,12 @@
 <template>
   <div>
+  <br>
     <h1>Flight List</h1>
     <ul>
       <table class="table">
         <thead>
           <tr>
             <th></th>
-            <th scope="col">Flight id</th>
             <th scope="col">Airplane id</th>
             <th scope="col">Customer id</th>
             <th scope="col">Departure Airport</th>
@@ -21,7 +21,6 @@
         <tbody>
           <tr v-for="flight in Flights" :key="flight.flight_id">
             <td><router-link :to="{ name: 'EditFlight', params: {id: flight.flight_id} }"><button type="button" class="btn btn-primary">Edit</button></router-link></td>
-            <td scope="row">{{flight.flight_id}}</td>
             <td>{{flight.airplane_id}}</td>
             <td>{{flight.cust_id}}</td>
             <td>{{flight.departure_airport}}</td>
@@ -34,9 +33,8 @@
           </tr>
         </tbody>
       </table>
-      <a href="#/addflight/"><button type="button" class="btn btn-primary">Create</button></a>
-      <button type="button" class="btn btn-primary" onclick="window.location.href='#/updateflight'">Update</button>
-      <button type="button" class="btn btn-primary">Delete</button>
+      <hr>
+      <a href="#/addflight/"><button type="button" class="btn btn-primary">Add Flight</button></a>
     </ul>
   </div>
 </template>

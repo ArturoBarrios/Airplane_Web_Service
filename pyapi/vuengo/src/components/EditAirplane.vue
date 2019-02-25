@@ -1,6 +1,9 @@
 <template>
-  <div>
+  <div class="hero is-fullheight is-info is-bold">
+  <div class="hero-body">
+  <div class="container">
     <h1>Update Airplane</h1>
+    <div class="box">
     <ul>
       <div class="form-group">
         <label class="col-form-label" for="airplaneID">Airplane id:</label>
@@ -29,6 +32,10 @@
       </div>
 
     </ul>
+  </div>
+
+  </div>
+  </div>
   </div>
 </template>
 

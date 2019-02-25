@@ -3,15 +3,12 @@
   <div class="hero-body">
   <div class="container">
 
-    <h1 class="title has-text-centered">Add Airport</h1>
+    <h1 class="title has-text-left">Add Airport</h1>
     <div class="box">
 
       <!-- our signup form ===================== -->
       <ul>
-        <div class="form-group">
-          <label class="col-form-label" for="customerID">Airport id:</label>
-          <input type="text" v-model="airport_id" class="form-control" placeholder="Airport id" id="airport_id">
-        </div>
+
         <div class="form-group">
           <label class="col-form-label" for="manufac">Airport Name:</label>
           <input type="text" v-model="airport_name" class="form-control" placeholder="CMH" id="airport_name">
@@ -58,7 +55,7 @@ export default {
   methods: {
     createpost () {
       axios.post('http://127.0.0.1:8000/myapp/airports/', {
-        airport_id: this.airport_id,
+        airport_id: Date.now(),
         airport_name: this.airport_name,
         city: this.city,
         state: this.state
