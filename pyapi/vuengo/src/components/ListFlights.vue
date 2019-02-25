@@ -19,7 +19,7 @@
         <tbody>
           <tr v-for="flight in Flights" :key="flight.flight_id">
             <td><a href="#/editcustomer/"><button type="button" class="btn btn-primary">Edit</button></a></td>
-            <th scope="row">{{flight.flight_id}}</th>
+            <td scope="row">{{flight.flight_id}}</td>
             <td>{{flight.airplane_id}}</td>
             <td>{{flight.cust_id}}</td>
             <td>{{flight.scheduled_dep_time}}</td>
