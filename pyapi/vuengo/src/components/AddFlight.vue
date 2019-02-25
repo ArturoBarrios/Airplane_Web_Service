@@ -21,12 +21,28 @@
           <input type="text" v-model="cust_id" class="form-control" placeholder="Customer id" id="cust_id">
         </div>
         <div class="form-group">
-          <label class="col-form-label" for="typ">Departure time:</label>
-          <input type="text" v-model="scheduled_dep_time" class="form-control" placeholder="Departure time" id="scheduled_dep_time">
+          <label for="example-date-input" class="col-form-label" >Date Arrival:</label>
+          <div class="col-10">
+          <input type="date" v-model="date_arriv" class="form-control" value="2011-08-10" id="date_arriv">
+        </div>
         </div>
         <div class="form-group">
-          <label class="col-form-label" for="typ">Arrival time:</label>
-          <input type="text" v-model="scheduled_arriv_time" class="form-control" placeholder="Arrival time" id="scheduled_arriv_time">
+          <label for="example-date-input" class="col-form-label" >Date Departure:</label>
+          <div class="col-10">
+          <input type="date" v-model="date_dep" class="form-control" value="2011-08-10" id="date_dep">
+        </div>
+        </div>
+        <div class="form-group">
+          <label class="col2-form-label" for="example-time-input">Departure time:</label>
+          <div class="col-10">
+          <input type="time" v-model="scheduled_dep_time" class="form-control" value="13:45:00" id="scheduled_dep_time">
+        </div>
+        </div>
+        <div class="form-group">
+          <label class="col2-form-label" for="example-time-input">Arrival time:</label>
+          <div class="col-10">
+          <input type="time" v-model="scheduled_arriv_time" class="form-control" value="13:45:00" id="scheduled_arriv_time">
+        </div>
         </div>
         <div class="form-group">
           <label class="col-form-label" for="typ">Departure airport:</label>
@@ -40,6 +56,8 @@
         {{flight_id}}
         {{airplane_id}}
         {{cust_id}}
+        {{date_arriv}}
+        {{date_dep}}
         {{scheduled_dep_time}}
         {{scheduled_arriv_time}}
         {{departure_airport}}
@@ -62,6 +80,8 @@ export default {
       flight_id: null,
       airplane_id: null,
       cust_id: null,
+      date_arriv: null,
+      date_dep: null,
       scheduled_dep_time: null,
       scheduled_arriv_time: null,
       departure_airport: null,
@@ -74,6 +94,8 @@ export default {
         flight_id: this.flight_id,
         airplane_id: this.airplane_id,
         cust_id: this.cust_id,
+        date_arriv: this.date_arriv,
+        date_dep: this.date_dep,
         scheduled_dep_time: this.scheduled_dep_time,
         scheduled_arriv_time: this.scheduled_arriv_time,
         departure_airport: this.departure_airport,

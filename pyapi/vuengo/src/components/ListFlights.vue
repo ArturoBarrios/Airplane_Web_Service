@@ -9,6 +9,8 @@
             <th scope="col">Flight id</th>
             <th scope="col">Airplane id</th>
             <th scope="col">Customer id</th>
+            <th scope="col">date_arriv</th>
+            <th scope="col">date_dep</th>
             <th scope="col">Departure Time</th>
             <th scope="col">Arrival Time</th>
             <th scope="col">Departure Airport</th>
@@ -22,6 +24,8 @@
             <td scope="row">{{flight.flight_id}}</td>
             <td>{{flight.airplane_id}}</td>
             <td>{{flight.cust_id}}</td>
+            <td>{{flight.date_arriv}}</td>
+            <td>{{flight.date_dep}}</td>
             <td>{{flight.scheduled_dep_time}}</td>
             <td>{{flight.scheduled_arriv_time}}</td>
             <td>{{flight.departure_airport}}</td>
