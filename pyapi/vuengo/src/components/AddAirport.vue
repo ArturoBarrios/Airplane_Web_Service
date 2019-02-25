@@ -14,21 +14,26 @@
         </div>
         <div class="form-group">
           <label class="col-form-label" for="manufac">Airport Name:</label>
-          <input type="text" v-model="airport_name" class="form-control" placeholder="Airport Name" id="airport_name">
+          <input type="text" v-model="airport_name" class="form-control" placeholder="CMH" id="airport_name">
         </div>
         <div class="form-group">
           <label class="col-form-label" for="maxSeats">City:</label>
-          <input type="text" v-model="city" class="form-control" placeholder="City" id="city">
+          <input type="text" v-model="city" class="form-control" placeholder="Columbus" id="city">
         </div>
         <div class="form-group">
           <label class="col-form-label" for="typ">State:</label>
-          <input type="text" v-model="state" class="form-control" placeholder="State" id="state">
+          <input type="text" v-model="state" class="form-control" placeholder="Ohio" id="state">
         </div>
-        <button type="button" v-on:click="createpost ()" class="btn btn-primary">Submit</button>
-        {{airport_id}}
-        {{airport_name}}
-        {{city}}
-        {{state}}
+
+        <div class="form-row align-items-left">
+           <div class="col-auto">
+            <button type="button" v-on:click="createpost ()" class="btn btn-primary">Submit</button>
+           </div>
+           <div class="col-auto">
+            <a href="#/listairports/"><button type="button" class="btn btn-primary">Back</button></a>
+          </div>
+        </div>
+
       </ul>
 
     </div>

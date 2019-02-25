@@ -21,47 +21,39 @@
           <input type="text" v-model="cust_id" class="form-control" placeholder="Customer id" id="cust_id">
         </div>
         <div class="form-group">
-          <label for="example-date-input" class="col-form-label" >Date Arrival:</label>
-          <div class="col-10">
-          <input type="date" v-model="date_arriv" class="form-control" value="2011-08-10" id="date_arriv">
-        </div>
+          <label class="col-form-label" for="typ">Departure Airport:</label>
+          <input type="text" v-model="departure_airport" class="form-control" placeholder="CMH" id="departure_airport">
         </div>
         <div class="form-group">
-          <label for="example-date-input" class="col-form-label" >Date Departure:</label>
-          <div class="col-10">
-          <input type="date" v-model="date_dep" class="form-control" value="2011-08-10" id="date_dep">
-        </div>
+          <label for="example-date-input" class="col-form-label" >Departure Date:</label>
+          <input type="date" v-model="date_dep" class="form-control" value="2011-10-15" id="date_dep">
         </div>
         <div class="form-group">
-          <label class="col2-form-label" for="example-time-input">Departure time:</label>
-          <div class="col-10">
+          <label class="col2-form-label" for="example-time-input">Departure Time:</label>
           <input type="time" v-model="scheduled_dep_time" class="form-control" value="13:45:00" id="scheduled_dep_time">
-        </div>
-        </div>
-        <div class="form-group">
-          <label class="col2-form-label" for="example-time-input">Arrival time:</label>
-          <div class="col-10">
-          <input type="time" v-model="scheduled_arriv_time" class="form-control" value="13:45:00" id="scheduled_arriv_time">
-        </div>
-        </div>
-        <div class="form-group">
-          <label class="col-form-label" for="typ">Departure airport:</label>
-          <input type="text" v-model="departure_airport" class="form-control" placeholder="Departure Airport" id="departure_airport">
         </div>
         <div class="form-group">
           <label class="col-form-label" for="typ">Arrival Airport:</label>
-          <input type="text" v-model="arrival_airport" class="form-control" placeholder="Arrival Airport" id="arrival_airport">
+          <input type="text" v-model="arrival_airport" class="form-control" placeholder="ICN" id="arrival_airport">
         </div>
-        <button type="button" v-on:click="createpost ()" class="btn btn-primary">Submit</button>
-        {{flight_id}}
-        {{airplane_id}}
-        {{cust_id}}
-        {{date_arriv}}
-        {{date_dep}}
-        {{scheduled_dep_time}}
-        {{scheduled_arriv_time}}
-        {{departure_airport}}
-        {{arrival_airport}}
+        <div class="form-group">
+          <label for="example-date-input" class="col-form-label" >Arrival Date:</label>
+          <input type="date" v-model="date_arriv" class="form-control" value="2011-08-10" id="date_arriv">
+        </div>
+        <div class="form-group">
+          <label class="col2-form-label" for="example-time-input">Arrival Time:</label>
+          <input type="time" v-model="scheduled_arriv_time" class="form-control" value="19:30:00" id="scheduled_arriv_time">
+        </div>
+
+        <div class="form-row align-items-left">
+           <div class="col-auto">
+            <button type="button" v-on:click="createpost ()" class="btn btn-primary">Submit</button>
+           </div>
+           <div class="col-auto">
+            <a href="#/listflights/"><button type="button" class="btn btn-primary">Back</button></a>
+          </div>
+        </div>
+
       </ul>
 
     </div>

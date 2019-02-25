@@ -28,7 +28,7 @@
     </table>
     <a href="#/addcustomer/"><button type="button" class="btn btn-primary">Create</button></a>
     <!-- <button type="button" class="btn btn-primary" onclick="window.location.href='#/createcustomer/'">Create</button> -->
-    <button type="button" class="btn btn-primary">Update</button>
+    <button type="button" class="btn btn-primary" onclick="window.location.href='#/updatecustomer/'">Update</button>
     <button type="button" class="btn btn-primary">Delete</button>
   </ul>
 </div>

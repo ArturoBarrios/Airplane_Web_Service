@@ -9,12 +9,12 @@
             <th scope="col">Flight id</th>
             <th scope="col">Airplane id</th>
             <th scope="col">Customer id</th>
-            <th scope="col">date_arriv</th>
-            <th scope="col">date_dep</th>
-            <th scope="col">Departure Time</th>
-            <th scope="col">Arrival Time</th>
             <th scope="col">Departure Airport</th>
+            <th scope="col">Departure Date</th>
+            <th scope="col">Departure Time</th>
             <th scope="col">Arrival Airport</th>
+            <th scope="col">Arrival Date</th>
+            <th scope="col">Arrival Time</th>
             <th></th>
           </tr>
         </thead>
@@ -24,18 +24,18 @@
             <td scope="row">{{flight.flight_id}}</td>
             <td>{{flight.airplane_id}}</td>
             <td>{{flight.cust_id}}</td>
-            <td>{{flight.date_arriv}}</td>
+            <td>{{flight.departure_airport}}</td>
             <td>{{flight.date_dep}}</td>
             <td>{{flight.scheduled_dep_time}}</td>
-            <td>{{flight.scheduled_arriv_time}}</td>
-            <td>{{flight.departure_airport}}</td>
             <td>{{flight.arrival_airport}}</td>
+            <td>{{flight.date_arriv}}</td>
+            <td>{{flight.scheduled_arriv_time}}</td>
             <td><a href="#/listflights/"><button type="button" v-on:click="deleteFlight (flight.flight_id)" color="error" class="btn btn-danger">Delete</button></a></td>
           </tr>
         </tbody>
       </table>
       <a href="#/addflight/"><button type="button" class="btn btn-primary">Create</button></a>
-      <button type="button" class="btn btn-primary">Update</button>
+      <button type="button" class="btn btn-primary" onclick="window.location.href='#/updateflight'">Update</button>
       <button type="button" class="btn btn-primary">Delete</button>
     </ul>
   </div>

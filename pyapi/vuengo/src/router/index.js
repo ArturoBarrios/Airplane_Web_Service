@@ -5,9 +5,10 @@ import HomePage from '@/components/HomePage'
 import ListAirports from '@/components/ListAirports'
 import ListCustomers from '@/components/ListCustomers'
 import ListFlights from '@/components/ListFlights'
-import CreateAirplane from '@/components/CreateAirplane'
 import UpdateAirplane from '@/components/UpdateAirplane'
 import UpdateAirport from '@/components/UpdateAirport'
+import UpdateCustomer from '@/components/UpdateCustomer'
+import UpdateFlight from '@/components/UpdateFlight'
 import AddCustomer from '@/components/AddCustomer'
 import AddAirport from '@/components/AddAirport'
 import AddFlight from '@/components/AddFlight'
@@ -43,11 +44,6 @@ export default new Router({
       component: ListFlights
     },
     {
-      path: '/createairplane',
-      name: 'CreateAirplane',
-      component: CreateAirplane
-    },
-    {
       path: '/updateairplane',
       name: 'UpdateAirplane',
       component: UpdateAirplane
@@ -56,7 +52,36 @@ export default new Router({
       path: '/updateairport',
       name: 'UpdateAirport',
       component: UpdateAirport
+    },
+    {
+      path: '/updatecustomer',
+      name: 'updateCustomer',
+      component: UpdateCustomer
+    },
+    {
+      path: '/updateflight',
+      name: 'UpdateFlight',
+      component: UpdateFlight
+    },
+    {
+      path: '/addcustomer',
+      name: 'AddCustomer',
+      component: AddCustomer
+    },
+    {
+    path: '/addairport',
+    name: 'AddAirport',
+    component: AddAirport
+    },
+    {
+    path: '/addflight',
+    name: 'AddFlight',
+    component: AddFlight
+    },
+    {
+    path: '/addairplane',
+    name: 'AddAirplane',
+    component: AddAirplane
     }
-
   ]
 })

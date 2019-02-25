@@ -3,7 +3,7 @@
     <h1>Update Airplane</h1>
     <ul>
       <div class="form-group">
-        <label class="col-form-label" for="airplaneID">Airplane id:</label>
+        <label class="col-form-label" for="airplaneID">Airplane Id:</label>
         <select class="form-control" v-model="airplane_id" id="airplane_id" placeholder="Airplane id">
           <option v-for="airplane in Airplanes" :key="airplane.airplane_id">
             {{airplane.airplane_id}}
@@ -12,17 +12,26 @@
     </div>
       <div class="form-group">
         <label class="col-form-label" for="manufac">Manufacturer:</label>
-        <input type="text" v-model="manufacturer" class="form-control" placeholder="Manufacturer" id="manufacturer">
+        <input type="text" v-model="manufacturer" class="form-control" placeholder="Boeing" id="manufacturer">
       </div>
       <div class="form-group">
         <label class="col-form-label" for="maxSeats">Max Seats:</label>
-        <input type="text" v-model="max_seats" class="form-control" placeholder="Max Seats" id="max_seats">
+        <input type="text" v-model="max_seats" class="form-control" placeholder="280" id="max_seats">
       </div>
       <div class="form-group">
         <label class="col-form-label" for="typ">Type:</label>
-        <input type="text" v-model="type" class="form-control" placeholder="Type" id="type">
+        <input type="text" v-model="type" class="form-control" placeholder="A320" id="type">
       </div>
-      <button type="button" v-on:click="createput ()" class="btn btn-primary">Submit</button>
+
+      <div class="form-row align-items-left">
+         <div class="col-auto">
+          <button type="button" v-on:click="createput ()" class="btn btn-primary" onclick="window.location.href='#/listairplanes'">Submit</button>
+         </div>
+         <div class="col-auto">
+          <a href="#/listairplanes/"><button type="button" class="btn btn-primary">Back</button></a>
+        </div>
+      </div>
+
     </ul>
   </div>
 </template>
