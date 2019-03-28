@@ -3,15 +3,11 @@
   <div class="hero-body">
   <div class="container">
 
-    <h1 class="title has-text-centered">Customer Registration</h1>
+    <h1 class="title has-text-left">Add Airplane</h1>
     <div class="box">
 
       <!-- our signup form ===================== -->
       <ul>
-        <div class="form-group">
-          <label class="col-form-label" for="customerID">Airplane id:</label>
-          <input type="text" v-model="airplane_id" class="form-control" placeholder="Airplane id" id="airplane_id">
-        </div>
         <div class="form-group">
           <label class="col-form-label" for="manufac">Manufacurer:</label>
           <input type="text" v-model="manufacturer" class="form-control" placeholder="Boeing" id="manufacturer">
@@ -56,7 +52,7 @@ export default {
   methods: {
     createpost () {
       axios.post('http://127.0.0.1:8000/myapp/airplanes/', {
-        airplane_id: this.airplane_id,
+        airplane_id: Date.now(),
         manufacturer: this.manufacturer,
         max_seats: this.max_seats,
         type: this.type,

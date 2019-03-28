@@ -1,13 +1,13 @@
 
 <template>
 <div>
+<br>
   <h1>Airplane List</h1>
   <ul>
     <table class="table">
       <thead>
         <tr>
           <th></th>
-          <th scope="col">Airplane id</th>
           <th scope="col">Manufacturer</th>
           <th scope="col">Max Seats</th>
           <th scope="col">Type</th>
@@ -17,7 +17,6 @@
         <tbody>
           <tr v-for="airplane in Airplanes" :key="airplane.airplane_id">
             <td><router-link :to="{ name: 'EditAirplane', params: {id: airplane.airplane_id} }"><button type="button" class="btn btn-primary">Edit</button></router-link></td>
-            <th scope="row">{{airplane.airplane_id}}</th>
             <td>{{airplane.manufacturer}}</td>
             <td>{{airplane.max_seats}}</td>
             <td>{{airplane.type}}</td>
@@ -25,9 +24,8 @@
           </tr>
         </tbody>
     </table>
-    <a href="#/addairplane/"><button type="button" class="btn btn-primary">Create</button></a>
-    <button type="button" class="btn btn-primary" onclick="window.location.href='#/updateairplane/'">Update</button>
-    <button type="button" class="btn btn-primary">Delete</button>
+    <hr>
+    <a href="#/addairplane/"><button type="button" class="btn btn-primary">Add Airplane</button></a>
   </ul>
 </div>
 </template>

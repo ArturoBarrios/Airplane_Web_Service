@@ -3,15 +3,12 @@
   <div class="hero-body">
   <div class="container">
 
-    <h1 class="title has-text-centered">Customer Registration</h1>
+    <h1 class="title has-text-left">Customer Registration</h1>
     <div class="box">
 
       <!-- our signup form ===================== -->
       <ul>
-        <div class="form-group">
-          <label class="col-form-label" for="customerID">Customer id:</label>
-          <input type="text" v-model="cust_id" class="form-control" placeholder="Customer id" id="cust_id">
-        </div>
+
         <div class="form-group">
           <label class="col-form-label" for="manufac">First Name:</label>
           <input type="text" v-model="c_first_name" class="form-control" placeholder="John" id="c_first_name">
@@ -78,7 +75,7 @@ export default {
   methods: {
     createpost () {
       axios.post('http://127.0.0.1:8000/myapp/customers/', {
-        cust_id: this.cust_id,
+        cust_id: Date.now(),
         c_first_name: this.c_first_name,
         c_last_name: this.c_last_name,
         address: this.address,
