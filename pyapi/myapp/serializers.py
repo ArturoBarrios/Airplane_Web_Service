@@ -14,7 +14,7 @@ class AirportSerializer(serializers.ModelSerializer):
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
-        fields = ('c_first_name', 'c_last_name', 'address', 'city', 'postal_code', 'email', 'phone')
+        fields = ('cust_id', 'c_first_name', 'c_last_name', 'address', 'city', 'postal_code', 'email', 'phone')
 
 class FlightSerializer(serializers.ModelSerializer):
     class Meta:
