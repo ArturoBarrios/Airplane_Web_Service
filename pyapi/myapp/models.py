@@ -37,7 +37,7 @@ class Airport(models.Model):
 
 
 class Customer(models.Model):
-    cust_id = models.AutoField(primary_key=True)
+    cust_id = models.IntegerField(primary_key=True)
     c_first_name = models.CharField('First Name',max_length=30,default="")
     c_last_name = models.CharField('Last Name',max_length=30,default="")
     address = models.CharField('Address',max_length=30,default="")

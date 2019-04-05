@@ -31,7 +31,6 @@
           <a href="#/listairplanes/"><button type="button" class="btn btn-primary">Back</button></a>
         </div>
       </div>
-
     </ul>
   </div>
 </template>
@@ -49,6 +48,7 @@ export default {
       Airplanes: []
     }
   },
+
   mounted () {
     this.getAirplanes()
   },
@@ -66,6 +66,13 @@ export default {
         max_seats: this.max_seats,
         type: this.type
       }).then((response) => {}).catch((e) => { console.error(e) })
+    },
+    getObject: function (id) {
+      for (airplane in this.Airplanes) {
+        if (airplane.airplane_id == id) {
+          return airplane;
+        }
+      }
     }
   }
 }
