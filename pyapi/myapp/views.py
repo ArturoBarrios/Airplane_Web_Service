@@ -17,6 +17,7 @@ from django import forms
 from django.views.generic import FormView
 from django.views.generic import CreateView
 import slumber
+from rest_framework import generics
 # Create your views here.
 
 class FlightCreateView(CreateView):
@@ -148,6 +149,9 @@ def customer_list(request):
     # list all customers, or create a new customer
     if request.method == 'GET':
         customers = Customer.objects.all()
+        firstname = request.GET.get('firstname', None)
+        if firstname is not None:
+            customers = customers.filter(c_first_name=firstname)
         serializer = CustomerSerializer(customers, many=True)
         return JsonResponse(serializer.data, safe=False)
 
@@ -381,3 +385,13 @@ def flightcustomer_detail(request, pk):
     elif request.method == 'DELETE':
         relation.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
+
+class CustomerList(generics.ListAPIView):
+    serializer_class = CustomerSerializer
+
+    def get_queryset(self):
+        queryset = Customer.objects.all()
+        firstname = self.request.query_params.get('firstname', None)
+        if firstname is not None:
+            queryset = queryset.filter(c_first_name=firstname)
+        return queryset
