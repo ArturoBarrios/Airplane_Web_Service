@@ -2,12 +2,6 @@ from django.urls import path, re_path
 from myapp import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('airplane/', views.airplane_list_new.as_view(), name='airplane'),
-    path('customer/', views.customer_list_new.as_view(), name='customer'),
-    path('book_flight/', views.FlightCreateView.as_view(), name='bookflight'),
-    path('create_customer/', views.CustomerCreate.as_view(), name='Create_Customer'),
-    path('flight/', views.flight_list_new.as_view(), name='flight'),
     path('airplanes/', views.airplane_list),
     path('airplanes/<int:pk>', views.airplane_detail),
     path('airports/', views.airport_list),
